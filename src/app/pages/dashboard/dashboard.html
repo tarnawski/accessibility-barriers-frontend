@@ -1,0 +1,50 @@
+<navbar></navbar>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-2 left-box">
+            <div class="items">
+                <div class="items-item" ng-repeat="category in dashboard.categories" ng-click="dashboard.selectCategory(category.id)">
+                    <h5><b>{{ category.name }}</b></h5>
+                    <h6>Liczba notyfikacji: {{ category.notification_count }}</h6>
+                </div>
+        </div>
+    </div>
+    <div class="col-sm-7 center-box">
+       <ui-gmap-google-map
+               center='dashboard.map.center'
+               zoom='dashboard.map.zoom'>
+               <ui-gmap-markers
+                       ng-if="dashboard.notifications"
+                       models="dashboard.notifications"
+                       idkey="dashboard.notifications.id"
+                       options="dashboard.markerOptions"
+                       coords="'coordinates'"
+                       fit="true"
+                       events="dashboard.map.markersEvents">
+               </ui-gmap-markers>
+       </ui-gmap-google-map>
+    </div>
+    <div class="col-sm-3 right-box">
+        <div ng-if="dashboard.details">
+            <h1>{{ dashboard.notification.category.name }}</h1>
+            <h2>{{ dashboard.notification.name }}</h2>
+            <h3>{{ dashboard.notification.description }}</h3>
+            <h4>Liczba potwierdzeń: {{ dashboard.notification.rating }}</h4>
+            <h4>Data dodania: {{ dashboard.notification.created_at }}</h4>
+            <h4>Autor: {{ dashboard.notification.user.first_name }} {{ dashboard.notification.user.last_name }}</h4>
+
+            <br><br>
+            <!--<h4>Komentarze:</h4>-->
+            <!--<table class="table">-->
+                <!--<tr ng-repeat="comment in dashboard.notification.comments">-->
+                    <!--<td>-->
+                        <!--<h5>{{ comment.content }}</h5>-->
+                        <!--<h6 class="pull-right">{{ comment.created_at }}</h6>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</table>-->
+        </div>
+    </div>
+</div>
+</div>
+
