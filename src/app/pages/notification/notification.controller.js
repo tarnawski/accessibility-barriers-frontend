@@ -6,7 +6,7 @@
     .controller('NotificationController', NotificationController);
 
   /** @ngInject */
-  function NotificationController(communicationFactory) {
+  function NotificationController(communicationFactory, $stateParams) {
 
     var vm = this;
 
@@ -15,10 +15,9 @@
     ///////////////
 
     function activate() {
+      getNotification($stateParams.id);
       initializeMap();
-      getNotification();
     }
-
 
     /**
      * Initialize Google map widget
@@ -26,25 +25,22 @@
     function initializeMap() {
       vm.map = {
         center: {
-          latitude: 50.035061,
-          longitude: 22.002783
+          latitude: 50.036454,
+          longitude: 22.005916
         },
         zoom: 14,
         options: {
           disableDefaultUI: true
         },
-        markersEvents: {
-          click: function (marker, eventName, model) {
-
-          }
-        }
+        control: {}
       };
     }
 
-    function getNotification() {
-      communicationFactory.notifications.query(
+    function getNotification(id) {
+      communicationFactory.notifications.get({ id: id },
           function (data) {
-            vm.notifications = data;
+            vm.notification = data;
+            vm.map.control.refresh();
           },
           function () {
             $state.go('types', { message: 'Błąd aplikacji' });

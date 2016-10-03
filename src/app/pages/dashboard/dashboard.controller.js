@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController(communicationFactory) {
+  function DashboardController(communicationFactory, $state) {
 
     var vm = this;
 
@@ -36,8 +36,8 @@
     function initializeMap() {
       vm.map = {
         center: {
-          latitude: 50.035061,
-          longitude: 22.002783
+          latitude: 50.036454,
+          longitude: 22.005916
         },
         zoom: 14,
         options: {
@@ -101,7 +101,7 @@
     }
 
     function selectNotification(id) {
-      $state.go('notification');
+      $state.go('notification', { id: id });
     }
 
     function backToCategory() {

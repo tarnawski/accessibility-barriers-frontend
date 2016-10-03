@@ -35,7 +35,7 @@
 
 
         function goToNotification() {
-
+            $state.go('notification', { id: vm.model.id });
         }
     }
 })();

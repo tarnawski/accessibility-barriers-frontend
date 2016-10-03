@@ -1,22 +1,22 @@
 <navbar></navbar>
-<div class="container-fluid">
+<div class="container-fluid Dashboard">
 <div class="row">
-    <div class="col-sm-3 left-box">
-        <div class="items" ng-if="dashboard.categoryList">
-            <div class="items-item" ng-repeat="category in dashboard.categories" ng-click="dashboard.selectCategory(category.id)">
+    <div class="col-sm-3 Dashboard-left-box">
+        <div class="Dashboard-left-box-items" ng-if="dashboard.categoryList">
+            <div class="Dashboard-left-box-items-item" ng-repeat="category in dashboard.categories" ng-click="dashboard.selectCategory(category.id)">
                 <h5><b>{{ category.name }}</b></h5>
                 <h6>Liczba notyfikacji: {{ category.notification_count }}</h6>
             </div>
         </div>
-        <div class="items" ng-if="dashboard.notificationList">
-            <div class="items-item" ng-click="dashboard.backToCategory()"><h3>WRÓĆ DO KATRGORI</h3></div>
-            <div class="items-item" ng-repeat="notification in dashboard.notifications" ng-click="dashboard.selectNotification(notification.id)">
+        <div class="Dashboard-left-box-items" ng-if="dashboard.notificationList">
+            <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()"><h3>WRÓĆ DO KATRGORI</h3></div>
+            <div class="Dashboard-left-box-items-item" ng-repeat="notification in dashboard.notifications" ng-click="dashboard.selectNotification(notification.id)">
                 <h5><b>{{ notification.name }}</b></h5>
                 <h5>{{ notification.description | limitTo:200}}...</h5>
             </div>
         </div>
     </div>
-    <div class="col-sm-9 right-box">
+    <div class="col-sm-9 Dashboard-right-box">
        <ui-gmap-google-map
                center='dashboard.map.center'
                zoom='dashboard.map.zoom'>
