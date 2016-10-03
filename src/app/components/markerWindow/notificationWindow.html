@@ -1,0 +1,8 @@
+<a href class="NotificationWindow-close" ng-click="notificationWindow.closeWindow()">
+    <i class="icon-close"></i>
+</a>
+<div class="NotificationWindow">
+    <a href ng-click="notificationWindow.goToNotification()" class="NotificationWindow-name">{{ notificationWindow.model.name }}</a>
+    <br><br>
+    <span class="NotificationWindow-description">{{ notificationWindow.model.description | limitTo:200}}...</span>
+</div>

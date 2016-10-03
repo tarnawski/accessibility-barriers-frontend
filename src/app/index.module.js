@@ -24,7 +24,8 @@
       'pizzaFrontend.login',
       'pizzaFrontend.dashboard',
       'pizzaFrontend.profile',
-      'pizzaFrontend.register'
+      'pizzaFrontend.register',
+      'pizzaFrontend.notification'
     ]);
 
 })();

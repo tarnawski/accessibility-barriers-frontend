@@ -1,18 +1,33 @@
 <navbar></navbar>
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-2 left-box">
-            <div class="items">
-                <div class="items-item" ng-repeat="category in dashboard.categories" ng-click="dashboard.selectCategory(category.id)">
-                    <h5><b>{{ category.name }}</b></h5>
-                    <h6>Liczba notyfikacji: {{ category.notification_count }}</h6>
-                </div>
+    <div class="col-sm-3 left-box">
+        <div class="items" ng-if="dashboard.categoryList">
+            <div class="items-item" ng-repeat="category in dashboard.categories" ng-click="dashboard.selectCategory(category.id)">
+                <h5><b>{{ category.name }}</b></h5>
+                <h6>Liczba notyfikacji: {{ category.notification_count }}</h6>
+            </div>
+        </div>
+        <div class="items" ng-if="dashboard.notificationList">
+            <div class="items-item" ng-click="dashboard.backToCategory()"><h3>WRÓĆ DO KATRGORI</h3></div>
+            <div class="items-item" ng-repeat="notification in dashboard.notifications" ng-click="dashboard.selectNotification(notification.id)">
+                <h5><b>{{ notification.name }}</b></h5>
+                <h5>{{ notification.description | limitTo:200}}...</h5>
+            </div>
         </div>
     </div>
-    <div class="col-sm-7 center-box">
+    <div class="col-sm-9 right-box">
        <ui-gmap-google-map
                center='dashboard.map.center'
                zoom='dashboard.map.zoom'>
+               <ui-gmap-window
+                       show="dashboard.map.window.show"
+                       coords="dashboard.map.window.model.coordinates"
+                       options="dashboard.map.window.options"
+                       closeClick="dashboard.map.window.closeClick()"
+                       templateUrl="'app/components/markerWindow/markerWindow.html'"
+                       templateParameter="dashboard.map.window">
+               </ui-gmap-window>
                <ui-gmap-markers
                        ng-if="dashboard.notifications"
                        models="dashboard.notifications"
@@ -23,27 +38,6 @@
                        events="dashboard.map.markersEvents">
                </ui-gmap-markers>
        </ui-gmap-google-map>
-    </div>
-    <div class="col-sm-3 right-box">
-        <div ng-if="dashboard.details">
-            <h1>{{ dashboard.notification.category.name }}</h1>
-            <h2>{{ dashboard.notification.name }}</h2>
-            <h3>{{ dashboard.notification.description }}</h3>
-            <h4>Liczba potwierdzeń: {{ dashboard.notification.rating }}</h4>
-            <h4>Data dodania: {{ dashboard.notification.created_at }}</h4>
-            <h4>Autor: {{ dashboard.notification.user.first_name }} {{ dashboard.notification.user.last_name }}</h4>
-
-            <br><br>
-            <!--<h4>Komentarze:</h4>-->
-            <!--<table class="table">-->
-                <!--<tr ng-repeat="comment in dashboard.notification.comments">-->
-                    <!--<td>-->
-                        <!--<h5>{{ comment.content }}</h5>-->
-                        <!--<h6 class="pull-right">{{ comment.created_at }}</h6>-->
-                    <!--</td>-->
-                <!--</tr>-->
-            <!--</table>-->
-        </div>
     </div>
 </div>
 </div>

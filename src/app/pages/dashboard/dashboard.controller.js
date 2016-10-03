@@ -12,12 +12,18 @@
 
     // View model functions
     vm.selectCategory = selectCategory;
+    vm.selectNotification = selectNotification;
+    vm.backToCategory = backToCategory;
 
     activate();
 
     ///////////////
 
     function activate() {
+
+      vm.categoryList = true;
+      vm.notificationList = false;
+
       initializeMap();
       getCategories();
       getNotifications();
@@ -39,7 +45,21 @@
         },
         markersEvents: {
           click: function (marker, eventName, model) {
-            showNotificationDetails(model.id);
+            vm.map.window.show = true;
+            vm.map.window.model = model;
+          }
+        },
+        window: {
+          marker: {},
+          show: false,
+          closeClick: function () {
+            vm.map.window.show = false;
+          },
+          options: {
+            pixelOffset: {
+              width: 0,
+              height: -40
+            }
           }
         }
       };
@@ -67,11 +87,12 @@
       );
     }
 
-    function showNotificationDetails(id) {
-      vm.details = true;
-      communicationFactory.notifications.get({ id: id },
+    function selectCategory(id) {
+      communicationFactory.categories.get({ id: id },
           function (data) {
-            vm.notification = data;
+            vm.categoryList = false;
+            vm.notificationList = true;
+            vm.notifications = data.notifications;
           },
           function () {
             $state.go('types', { message: 'Błąd aplikacji' });
@@ -79,15 +100,12 @@
       );
     }
 
-    function selectCategory(id) {
-      communicationFactory.categories.get({ id: id },
-          function (data) {
-            vm.notifications = data.notifications;
-          },
-          function () {
-            $state.go('types', { message: 'Błąd aplikacji' });
-          }
-      );
+    function selectNotification(id) {
+      $state.go('notification');
+    }
+
+    function backToCategory() {
+      activate();
     }
   }
 })();

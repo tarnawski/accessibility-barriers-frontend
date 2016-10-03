@@ -3,16 +3,13 @@
     padding: 0;
 }
 
-.center-box {
+.right-box {
     padding: 0;
 }
 
-.right-box {
-
-}
-
 .items {
-
+    height: calc(100vh - 50px);
+    overflow: auto;
     &-item {
         display: block;
         position: relative;
