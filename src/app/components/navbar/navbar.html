@@ -13,21 +13,21 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-        <!--<li><a ui-sref="dashboard">Link 1</a></li>-->
+        <li><a ui-sref="dashboard" ui-sref-opts="{reload: true}"><span class="glyphicon glyphicon-map-marker"></span> Mapa barier</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Dodaj bariere</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-heart"></span> Opis projektu</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right" ng-if="navbar.currentUser">
-        <p class="navbar-text"> {{navbar.currentUser.username}} ({{navbar.currentUser.email}})</p>
-        <li dropdown>
-          <a href="#" dropdown-toggle><span class="glyphicon glyphicon-user"></span>  Konto<b class="caret"></b></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a ui-sref="profile">Pokaż profil</a></li>
-            <li><a ng-click="navbar.logout()">Wyloguj</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right" ng-if="!navbar.currentUser">
-        <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"> </span> Zaloguj</a></li>
-        <li><a ui-sref="register"><span class="glyphicon glyphicon-th"> </span> Zarejestruj</a></li>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Szukaj" size="35">
+        </div>
+        <button type="submit" class="btn btn-default"><span class="	glyphicon glyphicon-search"></span> Szukaj</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-if="navbar.currentUser"><a ui-sref="profile">Profil</a></li>
+        <li ng-if="navbar.currentUser"><a ng-click="navbar.logout()">Wyloguj</a></li>
+        <li ng-if="!navbar.currentUser"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+        <li ng-if="!navbar.currentUser"><a ui-sref="register"><span class="glyphicon glyphicon-th"></span> Zarejestruj</a></li>
       </ul>
     </div>
   </div>

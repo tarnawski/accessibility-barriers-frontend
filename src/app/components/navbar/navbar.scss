@@ -24,12 +24,14 @@
 .navbar-default .navbar-nav > .active > a:focus {
   color: #ffbbbc;
   background-color: #c0392b;
+  cursor: pointer;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   color: #ffbbbc;
   background-color: #c0392b;
+  cursor: pointer;
 }
 .navbar-default .navbar-toggle {
   border-color: #c0392b;
