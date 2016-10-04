@@ -1,0 +1,40 @@
+<navbar></navbar>
+<div class="container-fluid Notification">
+<div class="row">
+    <div class="col-sm-6 Notification-left-box">
+        <h1>Dodaj nową bariere</h1>
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Nazwa notyfikacji</label>
+                <input type="text" class="form-control" id="name" placeholder="Podaj nazwe notyfikacji">
+            </div>
+            <div class="form-group">
+                <label for="description">Opis notyfikacji</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="category">Wybierz kategorie</label>
+                <select name="statusCode" id="category" ng-options="category.id as category.name for category in createNotification.categories"
+                        ng-model="createNotification.notification.category" class="form-control" required></select>
+            </div>
+            <button type="submit" class="btn btn-default">Dodaj</button>
+        </form>
+
+
+
+    </div>
+    <div class="col-sm-6 Notification-right-box">
+        <ui-gmap-google-map
+                center='createNotification.map.center'
+                zoom='createNotification.map.zoom'
+                draggable="true"
+                events="createNotification.map.events">
+            <ui-gmap-marker
+                    coords="createNotification.map.marker.coordinates"
+                    idkey="1">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+</div>
+</div>
+

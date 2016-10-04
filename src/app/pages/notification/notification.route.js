@@ -9,7 +9,7 @@
   function routeConfig($stateProvider) {
     $stateProvider
       .state('notification', {
-        url: '/notifications/:id',
+        url: '/notification/:id',
         templateUrl: 'app/pages/notification/notification.html',
         controller: 'NotificationController',
         controllerAs: 'notification',
@@ -25,7 +25,25 @@
         data: {
           requireAuth: false
         }
-      });
+      })
+      .state('create_notification', {
+        url: '/create',
+        templateUrl: 'app/pages/notification/components/create/createNotification.html',
+        controller: 'CreateNotificationController',
+        controllerAs: 'createNotification',
+        params: {
+            message: null
+        },
+        resolve: {
+            message: /* @ngInject */
+                function ($stateParams) {
+                    return $stateParams.message;
+                }
+        },
+        data: {
+            requireAuth: false
+        }
+    });
   }
 
 })();
