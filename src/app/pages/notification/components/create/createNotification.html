@@ -19,20 +19,13 @@
             </div>
             <button type="submit" class="btn btn-default">Dodaj</button>
         </form>
-
-
-
     </div>
     <div class="col-sm-6 Notification-right-box">
         <ui-gmap-google-map
                 center='createNotification.map.center'
                 zoom='createNotification.map.zoom'
-                draggable="true"
                 events="createNotification.map.events">
-            <ui-gmap-marker
-                    coords="createNotification.map.marker.coordinates"
-                    idkey="1">
-            </ui-gmap-marker>
+            <ui-gmap-marker ng-if="createNotification.mapClicked" coords="createNotification.map.marker" idkey="1"></ui-gmap-marker>
         </ui-gmap-google-map>
     </div>
 </div>

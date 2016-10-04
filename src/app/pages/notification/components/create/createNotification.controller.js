@@ -9,8 +9,9 @@
     function CreateNotificationController(communicationFactory, $stateParams, $state) {
 
         var vm = this;
+        vm.mapClicked = false;
         vm.save = save;
-        vm.coordinates = 'sdfsdfsdf';
+
         activate();
 
         ///////////////
@@ -30,16 +31,16 @@
                     longitude: 22.005916
                 },
                 zoom: 14,
+                marker: {},
                 events: {
-                    click: function (map, eventName, originalEventArgs) {
+                    click: function (mapObject, eventName, originalEventArgs) {
                         var e = originalEventArgs[0];
-                        var lat = e.latLng.lat(),lon = e.latLng.lng();
                         vm.map.marker = {
-                            coordinates: {
-                                latitude: lat,
-                                longitude: lon
-                            }
+                            latitude: e.latLng.lat(),
+                            longitude: e.latLng.lng()
                         };
+                        mapObject.panTo(new google.maps.LatLng(vm.map.marker.latitude, vm.map.marker.longitude));
+                        vm.mapClicked = true;
                     }
                 }
             }
@@ -54,6 +55,10 @@
                     $state.go('types', { message: 'Błąd aplikacji' });
                 }
             );
+        }
+
+        function select() {
+            console.log(selected);
         }
 
         function save() {
