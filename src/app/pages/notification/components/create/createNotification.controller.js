@@ -17,6 +17,9 @@
         ///////////////
 
         function activate() {
+            if ($stateParams.message) {
+                vm.successResponse = $stateParams.message;
+            }
             initializeMap();
             getCategories();
         }
@@ -52,17 +55,32 @@
                     vm.categories = data;
                 },
                 function () {
-                    $state.go('types', { message: 'Błąd aplikacji' });
+                    $state.go('types', {message: 'Błąd aplikacji'});
                 }
             );
         }
 
-        function select() {
-            console.log(selected);
-        }
 
         function save() {
+            var data = {
+                name: vm.notification.name,
+                description: vm.notification.description,
+                latitude: vm.map.marker.latitude,
+                longitude: vm.map.marker.longitude,
+                rating: 0,
+                category: vm.notification.category
+            };
 
+            communicationFactory.notifications.save(data,
+                function (response) {
+
+                    console.log(response);
+                    $state.go('notification', {id: response.id});
+                },
+                function () {
+                    $state.go('types', {message: 'Błąd aplikacji. Jeśli problem będzie się powtarzał skontaktuj się z administratorem.'});
+                }
+            );
         }
     }
 })();

@@ -40,7 +40,6 @@
       communicationFactory.notifications.get({ id: id },
           function (data) {
             vm.notification = data;
-            vm.map.control.refresh();
           },
           function () {
             $state.go('types', { message: 'Błąd aplikacji' });

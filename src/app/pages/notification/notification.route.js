@@ -41,7 +41,7 @@
                 }
         },
         data: {
-            requireAuth: false
+            requireAuth: true
         }
     });
   }

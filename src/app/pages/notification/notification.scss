@@ -6,6 +6,11 @@
     &-right-box {
         padding: 0;
     }
+
+    &-marked {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 }
 
 .angular-google-map-container {
@@ -14,3 +19,4 @@
     width: 100%;
     height: calc(100vh - 50px);
 }
+
