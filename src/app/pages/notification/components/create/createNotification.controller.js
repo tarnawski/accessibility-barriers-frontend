@@ -78,7 +78,7 @@
                     $state.go('notification', {id: response.id});
                 },
                 function () {
-                    $state.go('types', {message: 'Błąd aplikacji. Jeśli problem będzie się powtarzał skontaktuj się z administratorem.'});
+                    $state.go('dashboard');
                 }
             );
         }

@@ -42,7 +42,7 @@
             vm.notification = data;
           },
           function () {
-            $state.go('types', { message: 'Błąd aplikacji' });
+            $state.go('dashboard');
           }
       );
     }

@@ -71,7 +71,7 @@
             vm.categories = data;
           },
           function () {
-            $state.go('types', { message: 'Błąd aplikacji' });
+            $state.go('dashboard');
           }
       );
     }
@@ -82,7 +82,7 @@
             vm.notifications = data;
           },
           function () {
-            $state.go('types', { message: 'Błąd aplikacji' });
+            $state.go('dashboard');
           }
       );
     }
@@ -95,7 +95,7 @@
             vm.notifications = data.notifications;
           },
           function () {
-            $state.go('types', { message: 'Błąd aplikacji' });
+            $state.go('dashboard');
           }
       );
     }
