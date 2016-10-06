@@ -24,6 +24,7 @@
 
       vm.logout = logoutUser;
       vm.refreshNotifications = refreshNotifications;
+      vm.selectNotification = selectNotification;
 
       activate();
 
@@ -54,6 +55,10 @@
               $state.go('dashboard');
             }
         );
+      }
+
+      function selectNotification(item, model) {
+        $state.go('notification', { id: model.id });
       }
 
       function logoutUser() {
