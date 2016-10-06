@@ -33,7 +33,7 @@
                     latitude: 50.036454,
                     longitude: 22.005916
                 },
-                zoom: 14,
+                zoom: 13,
                 marker: {},
                 events: {
                     click: function (mapObject, eventName, originalEventArgs) {

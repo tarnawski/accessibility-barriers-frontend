@@ -17,7 +17,8 @@
                 update: {
                     method: 'PUT'
                 }
-            })
+            }),
+            status: $resource(CONSTANTS.BASE_URL_API + '/api/status')
         };
     }
 })();

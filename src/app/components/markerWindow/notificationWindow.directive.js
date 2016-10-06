@@ -19,7 +19,7 @@
         return directive;
     }
 
-    function NotificationWindowController($state) {
+    function NotificationWindowController() {
         var vm = this;
 
         // View model function

@@ -28,7 +28,7 @@
           latitude: 50.036454,
           longitude: 22.005916
         },
-        zoom: 14,
+        zoom: 13,
         options: {
           disableDefaultUI: true
         },

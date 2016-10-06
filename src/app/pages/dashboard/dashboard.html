@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="Dashboard-left-box-items" ng-if="dashboard.notificationList">
-            <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()"><h3>WRÓĆ DO KATRGORII</h3></div>
+            <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()"><h4>WRÓĆ DO KATRGORII</h4></div>
             <div class="Dashboard-left-box-items-item" ng-repeat="notification in dashboard.notifications" ng-click="dashboard.selectNotification(notification.id)">
                 <h5><b>{{ notification.name }}</b></h5>
                 <h5>{{ notification.description | limitTo:200}}...</h5>
