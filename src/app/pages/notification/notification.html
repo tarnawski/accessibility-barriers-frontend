@@ -1,30 +1,25 @@
 <navbar></navbar>
-<div class="container-fluid Notification">
-<div class="row">
-    <div class="col-sm-6 Notification-left-box">
-        <h1>{{notification.notification.category.name}}</h1>
-        <h2>{{ notification.notification.name }}</h2>
-        <h3>{{notification.notification.description}}</h3>
-        <br><br>
-        <rating-notification model="notification.modelId"></rating-notification>
 
-        <div class="pull-right">
-        <h4>Data dodania: {{notification.notification.created_at}}</h4>
-        <h4>Autor: {{notification.notification.user.first_name}} {{notification.notification.user.last_name}}</h4>
-        </div>
-    </div>
-    <div class="col-sm-6 Notification-right-box">
-        <ui-gmap-google-map
-                center='notification.map.center'
-                zoom='notification.map.zoom'>
-            <ui-gmap-marker
-                    coords="notification.notification.coordinates"
-                    options="notification.notification.options"
-                    events="notification.notification.events"
-                    idkey="notification.notification.id">
-            </ui-gmap-marker>
-        </ui-gmap-google-map>
-    </div>
-</div>
+<div class="container">
+    <h4 class="page-header">OPIS ZGŁOSZENIA</h4>
+    <h2>{{ notification.notification.name }}</h2>
+    <h3>{{notification.notification.description}}</h3>
+    <h4 class="page-header">KATEGORIA ZGŁOSZENIA</h4>
+    <h3>{{notification.notification.category.name}}</h3>
+    <h4 class="page-header">PRZYBLIŻONY ADRES</h4>
+    <h3>{{notification.notification.address}}</h3>
+    <h4 class="page-header">LOKALIZACJA NA MAPIE</h4>
+    <ui-gmap-google-map
+            center='notification.map.center'
+            zoom='notification.map.zoom'>
+        <ui-gmap-marker
+                coords="notification.notification.coordinates"
+                options="notification.notification.options"
+                events="notification.notification.events"
+                idkey="notification.notification.id">
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+    <h4 class="page-header">KOMENTARZE UŻYTKOWNIKÓW</h4>
+
 </div>
 
