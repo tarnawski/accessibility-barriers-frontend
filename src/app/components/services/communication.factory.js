@@ -18,6 +18,7 @@
                     method: 'PUT'
                 }
             }),
+            ratings: $resource(CONSTANTS.BASE_URL_API + '/api/notifications/:id/ratings',{id: '@_id'}),
             status: $resource(CONSTANTS.BASE_URL_API + '/api/status')
         };
     }

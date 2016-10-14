@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-sm-6 text-center">
+        <h1 class="rating-num">{{rating.rating.average}}</h1>
+        <div class="rating">
+            <span ng-class="rating.rating.average >=1 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
+            <span ng-class="rating.rating.average >=2 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
+            <span ng-class="rating.rating.average >=3 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
+            <span ng-class="rating.rating.average >=4 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
+            <span ng-class="rating.rating.average >=5 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
+        </div>
+        <div>
+            Oceniło {{rating.rating.count}} użytkowników
+        </div>
+    </div>
+    <div class="col-sm-6 text-center">
+        <h3 ng-show="rating.hover == 0">Twoja ocena</h3>
+        <h3 ng-show="rating.hover == 1">Nie uciążliwa</h3>
+        <h3 ng-show="rating.hover == 2">Trochę uciążliwa</h3>
+        <h3 ng-show="rating.hover == 3">Uciążliwa</h3>
+        <h3 ng-show="rating.hover == 4">Bardzo uciążliwa</h3>
+        <h3 ng-show="rating.hover == 5">Nie do ominięcia</h3>
+        <h1>
+            <span
+                    ng-click="rating.rate(1)"
+                    ng-mouseenter="rating.hover = 1"
+                    ng-mouseleave="rating.hover = 0"
+                    ng-class="rating.hover >=1 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'">
+            </span>
+            <span
+                    ng-click="rating.rate(2)"
+                    ng-mouseenter="rating.hover = 2"
+                    ng-mouseleave="rating.hover = 0"
+                    ng-class="rating.hover >=2 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'">
+            </span>
+            <span
+                    ng-click="rating.rate(3)"
+                    ng-mouseenter="rating.hover = 3"
+                    ng-mouseleave="rating.hover = 0"
+                    ng-class="rating.hover >=3 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'">
+            </span>
+            <span
+                    ng-click="rating.rate(4)"
+                    ng-mouseenter="rating.hover = 4"
+                    ng-mouseleave="rating.hover = 0"
+                    ng-class="rating.hover >=4 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'">
+            </span>
+            <span
+                    ng-click="rating.rate(5)"
+                    ng-mouseenter="rating.hover = 5"
+                    ng-mouseleave="rating.hover = 0"
+                    ng-class="rating.hover >=5 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'">
+            </span>
+
+        </h1>
+    </div>
+</div>
