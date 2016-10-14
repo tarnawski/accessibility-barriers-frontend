@@ -6,7 +6,8 @@
         <h2>{{ notification.notification.name }}</h2>
         <h3>{{notification.notification.description}}</h3>
         <br><br>
-        <h4>Liczba potwierdzeń: {{notification.notification.rating}}</h4>
+        <rating-notification model="notification.modelId"></rating-notification>
+
         <div class="pull-right">
         <h4>Data dodania: {{notification.notification.created_at}}</h4>
         <h4>Autor: {{notification.notification.user.first_name}} {{notification.notification.user.last_name}}</h4>

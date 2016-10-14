@@ -15,6 +15,7 @@
     ///////////////
 
     function activate() {
+      vm.modelId = $stateParams.id;
       getNotification($stateParams.id);
       initializeMap();
     }
