@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function ratingNotificationController(communicationFactory) {
+    function ratingNotificationController(communicationFactory, store) {
 
       var vm = this;
       vm.rate = rate;
@@ -32,6 +32,7 @@
 
       function activate() {
           vm.hover = 0;
+          vm.currentUser  = store.get('currentUser');
           getRating(vm.model);
       }
 

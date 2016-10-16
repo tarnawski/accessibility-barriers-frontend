@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-6 text-center">
-        <h1 class="rating-num">{{rating.rating.average}}</h1>
+        <h1 class="rating-num">{{rating.rating.average | limitTo: 3}}</h1>
         <div class="rating">
             <span ng-class="rating.rating.average >=1 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
             <span ng-class="rating.rating.average >=2 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
@@ -12,11 +12,11 @@
             Oceniło {{rating.rating.count}} użytkowników
         </div>
     </div>
-    <div class="col-sm-6 text-center">
+    <div ng-show="rating.currentUser" class="col-sm-6 text-center">
         <h3 ng-show="rating.hover == 0">Twoja ocena</h3>
         <h3 ng-show="rating.hover == 1">Nie uciążliwa</h3>
         <h3 ng-show="rating.hover == 2">Trochę uciążliwa</h3>
-        <h3 ng-show="rating.hover == 3">Uciążliwa</h3>
+        <h3 ng-show="rating.hover == 3">Średnio uciążliwa</h3>
         <h3 ng-show="rating.hover == 4">Bardzo uciążliwa</h3>
         <h3 ng-show="rating.hover == 5">Nie do ominięcia</h3>
         <h1>

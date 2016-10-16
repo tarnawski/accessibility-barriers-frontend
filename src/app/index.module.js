@@ -19,6 +19,7 @@
       'ui.select',
       'uiGmapgoogle-maps',
       'geolocation',
+      'ui.gravatar',
 
       // App modules
       'pizzaFrontend.login',
