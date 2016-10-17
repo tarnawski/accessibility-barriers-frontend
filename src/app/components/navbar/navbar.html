@@ -36,8 +36,8 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li ng-if="navbar.currentUser"><a ui-sref="profile">Profil</a></li>
-                <li ng-if="navbar.currentUser"><a ng-click="navbar.logout()">Wyloguj</a></li>
+                <li ng-if="navbar.currentUser"><a ui-sref="profile"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+                <li ng-if="navbar.currentUser"><a ng-click="navbar.logout()"><span class="glyphicon glyphicon-log-out"></span> Wyloguj</a></li>
                 <li ng-if="!navbar.currentUser"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span>
                     Zaloguj</a></li>
                 <li ng-if="!navbar.currentUser"><a ui-sref="register"><span class="glyphicon glyphicon-th"></span>

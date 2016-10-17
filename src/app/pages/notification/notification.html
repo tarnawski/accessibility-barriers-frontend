@@ -1,30 +1,83 @@
 <navbar></navbar>
-<div class="container-fluid Notification">
-<div class="row">
-    <div class="col-sm-6 Notification-left-box">
-        <h1>{{notification.notification.category.name}}</h1>
-        <h2>{{ notification.notification.name }}</h2>
-        <h3>{{notification.notification.description}}</h3>
-        <br><br>
-        <rating-notification model="notification.modelId"></rating-notification>
 
-        <div class="pull-right">
-        <h4>Data dodania: {{notification.notification.created_at}}</h4>
-        <h4>Autor: {{notification.notification.user.first_name}} {{notification.notification.user.last_name}}</h4>
+<div class="container Notification">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="page-header">
+            <span class="glyphicon glyphicon-th-list"></span>
+                KATEGORIA ZGŁOSZENIA
+            </h4>
+            <h3>{{notification.notification.category.name}}</h3>
+        </div>
+        <div class="col-md-6">
+            <h4 class="page-header">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                PRZYBLIŻONY ADRES
+            </h4>
+            <h3>{{notification.notification.address}}</h3>
         </div>
     </div>
-    <div class="col-sm-6 Notification-right-box">
-        <ui-gmap-google-map
-                center='notification.map.center'
-                zoom='notification.map.zoom'>
-            <ui-gmap-marker
-                    coords="notification.notification.coordinates"
-                    options="notification.notification.options"
-                    events="notification.notification.events"
-                    idkey="notification.notification.id">
-            </ui-gmap-marker>
-        </ui-gmap-google-map>
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="page-header">
+                <span class="glyphicon glyphicon-user"></span>
+                UŻYTKOWNIK ODPOWIEDZIALNY
+            </h4>
+            <h3>{{notification.notification.user.first_name}} {{notification.notification.user.last_name}}</h3>
+        </div>
+        <div class="col-md-6">
+            <h4 class="page-header">
+                <span class="glyphicon glyphicon-calendar"></span>
+                DATA DODANIA
+            </h4>
+            <h3>{{notification.notification.created_at}}</h3>
+        </div>
     </div>
-</div>
+    <h4 class="page-header">
+        <span class="	glyphicon glyphicon-flag"></span>
+        OPIS ZGŁOSZENIA
+    </h4>
+    <h2>{{ notification.notification.name }}</h2>
+    <h3>{{notification.notification.description}}</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="page-header">
+                <span class="glyphicon glyphicon-thumbs-down"></span>
+                OCENA UCIĄŻLIWOŚCI
+            </h4>
+            <rating-notification model="notification.modelId"></rating-notification>
+        </div>
+        <div class="col-md-6">
+            <h4 class="page-header">
+                <span class="glyphicon glyphicon-bell"></span>
+                OSTRZEŻ ZNAJOMYCH
+            </h4>
+        </div>
+    </div>
+    <br><br>
+    <h4 class="page-header">
+        <span class="glyphicon glyphicon-globe"></span>
+        LOKALIZACJA NA MAPIE
+    </h4>
+    <ui-gmap-google-map
+            center='notification.map.center'
+            zoom='notification.map.zoom'>
+        <ui-gmap-marker
+                coords="notification.notification.coordinates"
+                options="notification.notification.options"
+                events="notification.notification.events"
+                idkey="notification.notification.id">
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+    <h4 class="page-header">
+        <span class="glyphicon glyphicon-alert"></span>
+        BARIERY W POBLIŻU
+    </h4>
+    <h4 class="page-header">
+        <span class="glyphicon glyphicon-comment"></span>
+        KOMENTARZE UŻYTKOWNIKÓW
+    </h4>
+    <comment-notification model="notification.modelId"></comment-notification>
+
 </div>
 
