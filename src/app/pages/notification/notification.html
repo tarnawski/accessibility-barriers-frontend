@@ -52,6 +52,32 @@
                 <span class="glyphicon glyphicon-bell"></span>
                 OSTRZEŻ ZNAJOMYCH
             </h4>
+            <a type="button"
+               class="btn btn-primary btn-block"
+               socialshare
+               socialshare-provider="facebook"
+               socialshare-text="{{ notification.notification.name }}"
+               socialshare-url="{{notification.currentUrl}}">
+               Udostępnij przez Facebook
+            </a>
+            <a type="button"
+               class="btn btn-danger btn-block"
+               socialshare
+               socialshare-provider="google"
+               socialshare-url="{{notification.currentUrl}}">
+               Udostępnij przez Google+
+            </a>
+            <a type="button"
+               class="btn btn-info btn-block"
+               socialshare
+               socialshare-provider="twitter"
+               socialshare-text="{{ notification.notification.name }}"
+               socialshare-hashtags="rzeszów, rzeszówbezbarier, mapabarier"
+               socialshare-url="{{notification.currentUrl}}">
+               Udostępnij przez Twitter
+            </a>
+
+
         </div>
     </div>
     <br><br>
