@@ -20,8 +20,9 @@
       'uiGmapgoogle-maps',
       'geolocation',
       'ui.gravatar',
+      '720kb.socialshare',
 
-      // App modules
+        // App modules
       'pizzaFrontend.login',
       'pizzaFrontend.dashboard',
       'pizzaFrontend.profile',

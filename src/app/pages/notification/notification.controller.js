@@ -6,7 +6,7 @@
     .controller('NotificationController', NotificationController);
 
   /** @ngInject */
-  function NotificationController(communicationFactory, $stateParams) {
+  function NotificationController(communicationFactory, $stateParams, $location) {
 
     var vm = this;
 
@@ -15,6 +15,7 @@
     ///////////////
 
     function activate() {
+      vm.currentUrl = $location.absUrl();
       vm.modelId = $stateParams.id;
       getNotification($stateParams.id);
       initializeMap();
