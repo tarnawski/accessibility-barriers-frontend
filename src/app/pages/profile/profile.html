@@ -1,18 +1,91 @@
 <navbar></navbar>
-
+<br>
 <div class="container">
-  <h1 class="page-header">Informacje o profilu</h1>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h3>Imie:</h3>
-      <h4>{{profile.currentUser.first_name}}</h4>
-      <h3>Nazwisko:</h3>
-      <h4>{{profile.currentUser.last_name}}</h4>
-      <h3>Nick:</h3>
-      <h4>{{profile.currentUser.username}}</h4>
-      <h3>Adres e-mail:</h3>
-      <h4>{{profile.currentUser.email}}</h4>
+    <div ng-messages="profile.errorResponse" ng-if="profile.errorResponse" >
+        <div class="alert alert-danger">{{profile.errorResponse}}</div>
     </div>
-  </div>
 
+    <div ng-messages="profile.successResponse" ng-if="profile.successResponse">
+        <div class="alert alert-success">{{profile.successResponse}}</div>
+    </div>
+    <form name="updateForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <h4 class="page-header">
+                        <span class="glyphicon glyphicon-user"></span>
+                        IMIE
+                    </h4>
+                    <input type="text"
+                           class="form-control"
+                           id="firstName"
+                           ng-model="profile.currentUser.first_name"
+                    required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <h4 class="page-header">
+                        <span class="glyphicon glyphicon-user"></span>
+                        NAZWISKO
+                    </h4>
+                    <input type="text"
+                           class="form-control"
+                           id="lastName"
+                           ng-model="profile.currentUser.last_name"
+                    required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <h4 class="page-header">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        NICK
+                    </h4>
+                    <input type="text"
+                           class="form-control"
+                           id="nick"
+                           ng-disabled="true"
+                           ng-model="profile.currentUser.username"
+                    required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <h4 class="page-header">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        ADRES EMAIL
+                    </h4>
+                    <input type="email"
+                           class="form-control"
+                           id="email"
+                           ng-model="profile.currentUser.email"
+                    required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <h4 class="page-header">
+                        <span class="glyphicon glyphicon-send"></span>
+                        NOTIFIKACJE EMAIL
+                    </h4>
+                    <h4>
+                        <label>
+                            <input type="checkbox" ng-model="profile.currentUser.email_notification">
+                            Chcę otrzymywać notyfikacje o nowych zgłoszeniach na adres e-mail: <strong>{{profile.currentUser.email}}</strong>
+                        </label>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <button
+                ng-click="profile.update()"
+                type="submit"
+                ng-disabled="updateForm.$invalid"
+                class="btn btn-success">ZAPISZ ZMIANY</button>
+    </form>
 </div>
