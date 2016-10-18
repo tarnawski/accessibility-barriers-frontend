@@ -67,14 +67,11 @@
                 description: vm.notification.description,
                 latitude: vm.map.marker.latitude,
                 longitude: vm.map.marker.longitude,
-                rating: 0,
                 category: vm.notification.category
             };
 
             communicationFactory.notifications.save(data,
                 function (response) {
-
-                    console.log(response);
                     $state.go('notification', {id: response.id});
                 },
                 function () {
