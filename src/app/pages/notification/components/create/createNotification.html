@@ -1,76 +1,72 @@
 <navbar></navbar>
-<div class="container-fluid Notification">
-<div class="row">
-    <div class="col-sm-6 Notification-left-box">
-        <h2>Uzupełnij dane o zgłoszeniu</h2>
+<div class="container Notification">
+    <div ng-messages="createNotification.errorResponse" ng-if="createNotification.errorResponse" >
+        <div class="alert alert-danger">{{createNotification.errorResponse}}</div>
+    </div>
 
-        <div ng-messages="createNotification.errorResponse" ng-if="createNotification.errorResponse" >
-            <div class="alert alert-danger">{{createNotification.errorResponse}}</div>
+    <div ng-messages="createNotification.successResponse" ng-if="createNotification.successResponse">
+        <div class="alert alert-success">{{createNotification.successResponse}}</div>
+    </div>
+    <h4 class="page-header" ng-if="!createNotification.map.marker.latitude">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        OZNACZ MIEJSCE NA MAPIE
+    </h4>
+    <h4 class="page-header" ng-if="createNotification.map.marker.latitude">
+        <span class="glyphicon glyphicon-ok"></span>
+        MIEJSCE ZOSTAŁO OZNACZONE
+    </h4>
+    <ui-gmap-google-map
+            center='createNotification.map.center'
+            zoom='createNotification.map.zoom'
+            events="createNotification.map.events">
+        <ui-gmap-marker ng-if="createNotification.mapClicked" coords="createNotification.map.marker" idkey="1"></ui-gmap-marker>
+    </ui-gmap-google-map>
+
+    <h4 class="page-header">
+        <span class="glyphicon glyphicon-plus"></span>
+        UZUPEŁNIJ DANE O ZGŁOSZENIU
+    </h4>
+
+    <form name="createForm">
+        <div class="form-group" ng-class="createForm.name.$invalid ? 'has-error': 'has-success'">
+            <label class="control-label" for="name">Nazwa notyfikacji</label>
+            <input
+                    ng-model="createNotification.notification.name"
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Podaj nazwe notyfikacji"
+                    required>
         </div>
-
-        <div ng-messages="createNotification.successResponse" ng-if="createNotification.successResponse">
-            <div class="alert alert-success">{{createNotification.successResponse}}</div>
-        </div>
-
-        <form name="createForm">
-            <div class="form-group" ng-class="createForm.name.$invalid ? 'has-error': 'has-success'">
-                <label class="control-label" for="name">Nazwa notyfikacji</label>
-                <input
-                        ng-model="createNotification.notification.name"
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        name="name"
-                        placeholder="Podaj nazwe notyfikacji"
-                        required>
-            </div>
-            <div class="form-group" ng-class="createForm.description.$invalid ? 'has-error': 'has-success'">
-                <label class="control-label" for="description">Opis notyfikacji</label>
-                <textarea
-                        ng-model="createNotification.notification.description"
-                        class="form-control"
-                        id="description"
-                        name="description"
-                        rows="3"
-                        required>
+        <div class="form-group" ng-class="createForm.description.$invalid ? 'has-error': 'has-success'">
+            <label class="control-label" for="description">Opis notyfikacji</label>
+            <textarea
+                    ng-model="createNotification.notification.description"
+                    class="form-control"
+                    id="description"
+                    name="description"
+                    rows="3"
+                    required>
                 </textarea>
-            </div>
-            <div class="form-group" ng-class="createForm.category.$invalid ? 'has-error': 'has-success'">
-                <label class="control-label" for="category">Wybierz kategorie</label>
-                <select
-                        id="category"
-                        name="category"
-                        ng-options="category.id as category.name for category in createNotification.categories"
-                        ng-model="createNotification.notification.category"
-                        class="form-control"
-                        required>
-                </select>
-            </div>
+        </div>
+        <div class="form-group" ng-class="createForm.category.$invalid ? 'has-error': 'has-success'">
+            <label class="control-label" for="category">Wybierz kategorie</label>
+            <select
+                    id="category"
+                    name="category"
+                    ng-options="category.id as category.name for category in createNotification.categories"
+                    ng-model="createNotification.notification.category"
+                    class="form-control"
+                    required>
+            </select>
+        </div>
 
-
-            <div class="Notification-marked text-danger" ng-if="!createNotification.map.marker.latitude">
-                <span class="glyphicon glyphicon-map-marker"> </span> Oznacz miejsce na mapie
-            </div>
-            <div class="Notification-marked text-success" ng-if="createNotification.map.marker.latitude">
-                <span class="glyphicon glyphicon-ok"> </span> Gotowe, miejsce zostało oznaczone
-            </div>
-
-
-            <button
-                    ng-click="createNotification.save()"
-                    type="submit"
-                    ng-disabled="createForm.$invalid || !createNotification.map.marker.latitude"
-                    class="btn btn-success btn-block">Dodaj zgłoszenie</button>
-        </form>
-    </div>
-    <div class="col-sm-6 Notification-right-box">
-        <ui-gmap-google-map
-                center='createNotification.map.center'
-                zoom='createNotification.map.zoom'
-                events="createNotification.map.events">
-            <ui-gmap-marker ng-if="createNotification.mapClicked" coords="createNotification.map.marker" idkey="1"></ui-gmap-marker>
-        </ui-gmap-google-map>
-    </div>
+        <button
+                ng-click="createNotification.save()"
+                type="submit"
+                ng-disabled="createForm.$invalid || !createNotification.map.marker.latitude"
+                class="btn btn-success btn-block">Dodaj zgłoszenie</button>
+    </form>
 </div>
-</div>
-
+<br><br><br>
