@@ -39,7 +39,6 @@
       function getRating(id) {
             communicationFactory.notifications.get({ id: id },
                 function (data) {
-                    console.log(data.rating);
                     vm.rating = data.rating;
                 },
                 function () {
