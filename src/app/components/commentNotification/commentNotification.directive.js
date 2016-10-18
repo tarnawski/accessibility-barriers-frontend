@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function commentNotificationController(communicationFactory, store) {
+    function commentNotificationController(communicationFactory, store, $state) {
 
       var vm = this;
       vm.addComment = addComment;
