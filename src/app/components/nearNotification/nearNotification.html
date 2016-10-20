@@ -3,14 +3,14 @@
         <div class="col-xs-4 col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                        {{near.address}}
+                    <a ui-sref="notification({ id: near.notification.id })">{{near.notification.address}}</a>
                 </div>
                 <div class="panel-body">
-                    <strong>{{near.name}}</strong>
+                    <strong>{{near.notification.name}}</strong>
                     <br>
-                    {{near.description}}
-                    <br> <br>
-                    <a ui-sref="notification({ id: near.id })"  class="pull-right">Czytaj więcej...</a>
+                    {{near.notification.description}}
+                    <br><br>
+                    <strong class="pull-right">W odległości: {{near.distance*1000 | limitTo: 3}} metrów.</strong>
                 </div>
             </div>
         </div>

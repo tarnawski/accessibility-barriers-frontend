@@ -76,8 +76,6 @@
                socialshare-url="{{notification.currentUrl}}">
                Udostępnij przez Twitter
             </a>
-
-
         </div>
     </div>
     <br><br>
@@ -100,9 +98,10 @@
         BARIERY W POBLIŻU
     </h4>
     <near-notification
-            latitude=""
-            longitude=""
-            limit="3">
+            ng-if="notification.notification"
+            latitude="notification.notification.coordinates.latitude"
+            longitude="notification.notification.coordinates.longitude"
+            limit="4">
     </near-notification>
     <h4 class="page-header">
         <span class="glyphicon glyphicon-comment"></span>

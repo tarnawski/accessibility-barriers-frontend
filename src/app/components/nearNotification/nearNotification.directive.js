@@ -36,7 +36,11 @@
       }
 
       function getNearNotifications(latitude, longitude, limit) {
-            communicationFactory.notifications.query(
+          communicationFactory.near.query({
+                latitude: latitude,
+                longitude: longitude,
+                limit: limit
+            },
                 function (data) {
                     vm.notifications = data;
                 },
