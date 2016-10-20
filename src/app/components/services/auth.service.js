@@ -1,7 +1,7 @@
 (function (){
     'use strict';
     angular
-        .module('pizzaFrontend')
+        .module('accessibilityBarriers')
         .service('authService', authService);
 
     /** @ngInject */

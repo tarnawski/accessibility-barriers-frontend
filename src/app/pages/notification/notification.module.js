@@ -3,5 +3,5 @@
     'use strict';
 
     angular
-        .module('pizzaFrontend.notification',[]);
+        .module('accessibilityBarriers.notification',[]);
 })();

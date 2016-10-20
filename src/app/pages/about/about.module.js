@@ -3,5 +3,5 @@
     'use strict';
 
     angular
-        .module('pizzaFrontend.about',[]);
+        .module('accessibilityBarriers.about',[]);
 })();

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend.dashboard')
+    .module('accessibilityBarriers.dashboard')
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('pizzaFrontend.register')
+        .module('accessibilityBarriers.register')
         .config(routeConfig);
 
 /** @ngInject */

@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('pizzaFrontend')
+        .module('accessibilityBarriers')
         .directive('notificationWindow', notificationWindow);
 
     function notificationWindow() {
@@ -24,18 +24,12 @@
 
         // View model function
         vm.closeWindow = closeWindow;
-        vm.goToNotification = goToNotification;
 
         /**
          * Close window
          */
         function closeWindow() {
             vm.show = false;
-        }
-
-
-        function goToNotification() {
-            $state.go('notification', { id: vm.model.id });
         }
     }
 })();

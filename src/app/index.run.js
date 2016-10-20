@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend')
+    .module('accessibilityBarriers')
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock(CONSTANTS, $rootScope, $state, authService, store, toaster){
+  function runBlock(CONSTANTS, $rootScope, $state, authService){
 
     $rootScope.$on('request:Unauthorized', onUnauthorized);
     $rootScope.$on('user:LoggedIn', onUserLoggedIn);
@@ -33,7 +33,7 @@
       $state.go('dashboard', { message: 'Your session has been refreshed' });
     }
 
-    function onStateChangeStart(event, toState, toParams, fromState, fromParams) {
+    function onStateChangeStart(event, toState) {
 
       var isUserAllowed = authService.isUserAllowed(toState);
 

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend')
+    .module('accessibilityBarriers')
     .directive('nearNotification', nearNotification);
 
   /** @ngInject */

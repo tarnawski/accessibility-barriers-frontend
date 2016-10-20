@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend')
+    .module('accessibilityBarriers')
     .directive('commentNotification', commentNotification);
 
   /** @ngInject */
@@ -51,7 +51,7 @@
             content: vm.comment.content
           };
           communicationFactory.comments.save({ id: vm.model }, data,
-              function (response) {
+              function () {
                   vm.comment.content = '';
                   getComments(vm.model);
               },

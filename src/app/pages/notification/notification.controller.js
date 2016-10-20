@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend.notification')
+    .module('accessibilityBarriers.notification')
     .controller('NotificationController', NotificationController);
 
   /** @ngInject */
-  function NotificationController(communicationFactory, $stateParams, $location) {
+  function NotificationController(communicationFactory, $stateParams, $location, $state) {
 
     var vm = this;
 
