@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend.about')
+    .module('accessibilityBarriers.about')
     .controller('AboutController', AboutController);
 
   /** @ngInject */
-  function AboutController(communicationFactory) {
+  function AboutController(communicationFactory, $state) {
 
       var vm = this;
 

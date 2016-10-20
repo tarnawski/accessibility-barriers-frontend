@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend')
+    .module('accessibilityBarriers')
     .directive('nearNotification', nearNotification);
 
   /** @ngInject */
   function nearNotification() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/nearNotification/nearNotification.html',
+      templateUrl: 'app/components/directives/nearNotification/nearNotification.html',
       scope: {
           latitude: '=',
           longitude: '=',
@@ -36,7 +36,11 @@
       }
 
       function getNearNotifications(latitude, longitude, limit) {
-            communicationFactory.notifications.query(
+          communicationFactory.near.query({
+                latitude: latitude,
+                longitude: longitude,
+                limit: limit
+            },
                 function (data) {
                     vm.notifications = data;
                 },

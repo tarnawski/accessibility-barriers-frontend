@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('pizzaFrontend')
+        .module('accessibilityBarriers')
         .factory('authInterceptor', authInterceptor);
 
     /** @ngInject */

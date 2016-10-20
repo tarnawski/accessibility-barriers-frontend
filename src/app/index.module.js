@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend', [
+    .module('accessibilityBarriers', [
       // Plugins
       'ngAnimate',
       'ngCookies',
@@ -23,12 +23,12 @@
       '720kb.socialshare',
 
         // App modules
-      'pizzaFrontend.login',
-      'pizzaFrontend.dashboard',
-      'pizzaFrontend.profile',
-      'pizzaFrontend.register',
-      'pizzaFrontend.notification',
-      'pizzaFrontend.about'
+      'accessibilityBarriers.login',
+      'accessibilityBarriers.dashboard',
+      'accessibilityBarriers.profile',
+      'accessibilityBarriers.register',
+      'accessibilityBarriers.notification',
+      'accessibilityBarriers.about'
     ]);
 
 })();

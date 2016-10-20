@@ -2,7 +2,7 @@
 {
     'use strict';
     angular
-        .module('pizzaFrontend')
+        .module('accessibilityBarriers')
         .service('communicationFactory', communicationFactory);
 
     /** @ngInject */
@@ -29,7 +29,8 @@
                     method: 'PUT'
                 }
             }),
-            status: $resource(CONSTANTS.BASE_URL_API + '/api/status')
+            status: $resource(CONSTANTS.BASE_URL_API + '/api/status'),
+            near: $resource(CONSTANTS.BASE_URL_API + '/api/notifications/near')
         };
     }
 })();

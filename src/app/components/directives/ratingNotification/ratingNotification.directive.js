@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend')
+    .module('accessibilityBarriers')
     .directive('ratingNotification', ratingNotification);
 
   /** @ngInject */
   function ratingNotification() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/ratingNotification/ratingNotification.html',
+      templateUrl: 'app/components/directives/ratingNotification/ratingNotification.html',
       scope: {
         model: '='
       },
@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function ratingNotificationController(communicationFactory, store) {
+    function ratingNotificationController(communicationFactory, store, $state) {
 
       var vm = this;
       vm.rate = rate;
@@ -49,7 +49,7 @@
 
       function rate(value) {
           communicationFactory.ratings.save({id: vm.model}, {value: value},
-              function (response) {
+              function () {
                   getRating(vm.model);
               },
               function () {

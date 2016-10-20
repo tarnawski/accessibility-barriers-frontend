@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend.register')
+    .module('accessibilityBarriers.register')
     .controller('RegisterController', RegisterController);
 
   /** @ngInject */
@@ -29,7 +29,7 @@
       $state.go('login', { message: 'Poprawnie zarejestrowano, możesz się teraz zalogować'});
     }
 
-    function setErrorMessage(error) {
+    function setErrorMessage() {
       vm.successResponse = "";
       vm.errorResponse = "Nazwa użytkownika lub adres email jest już zarezerwowany";
     }

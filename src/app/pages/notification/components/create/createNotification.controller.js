@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('pizzaFrontend.notification')
+        .module('accessibilityBarriers.notification')
         .controller('CreateNotificationController', CreateNotificationController);
 
     /** @ngInject */

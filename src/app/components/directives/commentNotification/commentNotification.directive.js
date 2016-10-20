@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('pizzaFrontend')
+    .module('accessibilityBarriers')
     .directive('commentNotification', commentNotification);
 
   /** @ngInject */
   function commentNotification() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/commentNotification/commentNotification.html',
+      templateUrl: 'app/components/directives/commentNotification/commentNotification.html',
       scope: {
         model: '='
       },
@@ -51,7 +51,7 @@
             content: vm.comment.content
           };
           communicationFactory.comments.save({ id: vm.model }, data,
-              function (response) {
+              function () {
                   vm.comment.content = '';
                   getComments(vm.model);
               },
