@@ -28,7 +28,8 @@
       'accessibilityBarriers.profile',
       'accessibilityBarriers.register',
       'accessibilityBarriers.notification',
-      'accessibilityBarriers.about'
+      'accessibilityBarriers.about',
+      'accessibilityBarriers.notificationList'
     ]);
 
 })();

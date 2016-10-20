@@ -6,16 +6,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" ui-sref="dashboard" ui-sref-opts="{reload: true}"><b>RzeszówBezBarier</b></a>
+        <a class="navbar-brand" ui-sref="about"><b>RzeszówBezBarier</b></a>
     </div>
     <div class="collapse navbar-collapse" collapse="navCollapsed">
         <ul class="nav navbar-nav">
             <li><a ui-sref="dashboard" ui-sref-opts="{reload: true}"><span
-                    class="glyphicon glyphicon-map-marker"></span> Mapa barier</a></li>
-            <li><a ui-sref="create_notification"><span class="glyphicon glyphicon-plus"></span> Dodaj bariere</a></li>
-            <li><a ui-sref="about"><span class="glyphicon glyphicon-heart"></span> Opis projektu</a></li>
+                    class="glyphicon glyphicon-map-marker"></span> <strong>MAPA BARIER</strong></a></li>
+            <li><a ui-sref="list"><span class="glyphicon glyphicon-list"></span> <strong>LISTA BARIER</strong></a></li>
+            <li><a ui-sref="create_notification"><span class="glyphicon glyphicon-plus"></span> <strong>DODAJ BARIERE</strong></a></li>
         </ul>
-
         <ul class="nav navbar-nav navbar-right">
             <li ng-if="navbar.currentUser"><a ui-sref="profile"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
             <li ng-if="navbar.currentUser"><a ng-click="navbar.logout()"><span class="glyphicon glyphicon-log-out"></span> Wyloguj</a></li>
