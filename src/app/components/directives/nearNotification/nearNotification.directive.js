@@ -9,7 +9,7 @@
   function nearNotification() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/nearNotification/nearNotification.html',
+      templateUrl: 'app/components/directives/nearNotification/nearNotification.html',
       scope: {
           latitude: '=',
           longitude: '=',

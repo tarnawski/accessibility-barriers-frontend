@@ -6,7 +6,7 @@
     function notificationWindow() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'app/components/markerWindow/notificationWindow.html',
+            templateUrl: 'app/components/directives/markerWindow/notificationWindow.html',
             scope: {
                 model: '=',
                 show: '='

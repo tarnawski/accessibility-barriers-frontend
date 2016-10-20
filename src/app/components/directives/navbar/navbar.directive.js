@@ -9,7 +9,7 @@
   function navbar($state, authService, store, communicationFactory) {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
+      templateUrl: 'app/components/directives/navbar/navbar.html',
       controller: navbarController,
       controllerAs: 'navbar',
       bindToController: true

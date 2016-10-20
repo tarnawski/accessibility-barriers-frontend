@@ -9,7 +9,7 @@
   function ratingNotification() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/ratingNotification/ratingNotification.html',
+      templateUrl: 'app/components/directives/ratingNotification/ratingNotification.html',
       scope: {
         model: '='
       },

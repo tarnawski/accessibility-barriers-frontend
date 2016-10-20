@@ -9,7 +9,7 @@
   function commentNotification() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/commentNotification/commentNotification.html',
+      templateUrl: 'app/components/directives/commentNotification/commentNotification.html',
       scope: {
         model: '='
       },
