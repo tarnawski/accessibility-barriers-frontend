@@ -9,7 +9,7 @@
   function routeConfig($stateProvider) {
     $stateProvider
       .state('dashboard', {
-        url: '/',
+        url: '/map',
         templateUrl: 'app/pages/dashboard/dashboard.html',
         controller: 'DashboardController',
         controllerAs: 'dashboard',

@@ -1,31 +1,41 @@
 <navbar></navbar>
 <div class="about-box">
-<div class="container">
-    <div class="login-panel panel panel-default">
-        <div class="panel-body">
-            <h1 class="text-center">RzeszówBezBarier</h1>
-            <h4>
-                Aplikacja powstała, aby w jednym miejscu zgromadzić wiedzę różnych osób i
-                organizacji na temat miejsc utrudniających poruszanie się po mieście.
-                Opisane przez nas bariery są przeszkodą dla wielu użytkowników, nie tylko
-                osób niepełnosprawnych, ale także osób starszych, rodziców podróżujących z
-                dziećmi w wózkach czy nawet rowerzystów.
-            </h4>
-            <br>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4 text-center">
-                    <h1><b>{{about.status.category}}</b></h1>
-                    <h2>KATEGORII</h2>
-                </div>
-                <div class="col-md-4 text-center">
-                    <h1><b>{{about.status.notifications}}</b></h1>
-                    <h2>ZGŁOSZEŃ</h2>
-                </div>
-                <div class="col-md-2"></div>
+    <h1 class="text-center">RZESZÓW DLA <strong>WSZYSTKICH</strong></h1>
+    <br>
+    <div class="row center-block">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <button ui-sref="dashboard" type="button" class="btn btn-danger btn-lg btn-block">MAPA BARIER</button>
+        </div>
+        <div class="col-sm-3">
+            <button ui-sref="list" type="button" class="btn btn-primary btn-lg btn-block">LISTA BARIER</button>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+<div class="container about-top">
+    <br><br>
+    <h1 class="text-center">RZESZÓW BEZ <strong>BARIER</strong></h1>
+    <h3 class="text-center">
+        Aplikacja powstała, aby w jednym miejscu zgromadzić wiedzę różnych osób i
+        organizacji na temat miejsc utrudniających poruszanie się po mieście.
+        Opisane przez nas bariery są przeszkodą dla wielu użytkowników, nie tylko
+        osób niepełnosprawnych, ale także osób starszych, rodziców podróżujących z
+        dziećmi w wózkach czy nawet rowerzystów.
+    </h3>
+</div>
+<br><br>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row center-block about-statistic">
+            <div class="col-sm-6 text-center">
+                <h2>KATEGORII</h2>
+                <h1>{{about.status.category}}</h1>
+            </div>
+            <div class="col-sm-6 text-center">
+                <h2>BARIER</h2>
+                <h1>{{about.status.notifications}}</h1>
             </div>
         </div>
     </div>
-
-</div>
 </div>
