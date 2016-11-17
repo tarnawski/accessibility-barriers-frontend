@@ -23,8 +23,6 @@
       var vm = this;
 
       vm.logout = logoutUser;
-      vm.refreshNotifications = refreshNotifications;
-      vm.selectNotification = selectNotification;
 
       activate();
 
@@ -32,33 +30,20 @@
 
       function activate() {
         vm.currentUser  = store.get('currentUser');
-        getNotifications();
+          if(angular.isObject(vm.currentUser)) {
+              getAlerts();
+          }
       }
 
-      function getNotifications() {
-        communicationFactory.notifications.query(
+      function getAlerts() {
+        communicationFactory.alerts.query(
             function (data) {
-              vm.notifications = data;
+              vm.alerts = data;
             },
             function () {
               $state.go('dashboard');
             }
         );
-      }
-
-      function refreshNotifications(query){
-        communicationFactory.notifications.query({query: query},
-            function (data) {
-              vm.notifications = data;
-            },
-            function () {
-              $state.go('dashboard');
-            }
-        );
-      }
-
-      function selectNotification(item, model) {
-        $state.go('notification', { id: model.id });
       }
 
       function logoutUser() {

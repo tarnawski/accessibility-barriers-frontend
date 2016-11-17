@@ -17,6 +17,46 @@
                 <li><a ui-sref="create_notification"><span class="glyphicon glyphicon-plus"></span> <strong>DODAJ BARIERE</strong></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li dropdown ng-if="navbar.currentUser">
+                    <a href="#" dropdown-toggle>
+                        <span class="glyphicon glyphicon-bell"></span>
+                        <span class="label label-info label-notify">{{navbar.alerts.length}}</span>
+                        <strong>ALERTY</strong>
+                        <b class="caret"></b></a>
+                    <ul class="dropdown-menu alerts" role="menu" aria-labelledby="dLabel">
+                        <div class="alerts-wrapper text-center" ng-if="navbar.alerts.length == 0">
+                            <h4>Brak nowych alertów!</h4>
+                        </div>
+
+                        <div class="alerts-wrapper" ng-if="navbar.alerts.length != 0">
+                            <div class="content" ng-repeat="alert in navbar.alerts">
+                                <div ui-sref="notification({id: alert.notification.id})" class="alert-item" ng-if="!alert.rating && !alert.comment">
+                                    <h4 class="item-title">
+                                        Dodano nowe zgłoszenie o nazwie: <strong>{{alert.notification.name}}</strong> w lokalizacji:
+                                        <strong>{{alert.notification.address}}</strong>
+                                    </h4>
+                                </div>
+                                <div ui-sref="notification({id: alert.notification.id})" class="alert-item" ng-if="alert.comment">
+                                    <h4 class="item-title">
+                                        Twoje zgłoeszenie <strong>{{alert.notification.name}}</strong> zostało skomentowane:
+                                        <strong>"{{alert.comment.content}}"</strong>
+                                    </h4>
+
+                                </div>
+                                <div ui-sref="notification({id: alert.notification.id})" class="alert-item" ng-if="alert.rating">
+                                    <h4 class="item-title">
+                                        Zgłoszona przez Ciebie bariera <strong>{{alert.notification.name}}</strong> została ocenina jako:
+                                        <strong ng-if="alert.rating.value == 1">nie uciążliwa</strong>
+                                        <strong ng-if="alert.rating.value == 2">trochę uciążliwa</strong>
+                                        <strong ng-if="alert.rating.value == 3">średnio uciążliwa</strong>
+                                        <strong ng-if="alert.rating.value == 4">bardzo uciążliwa</strong>
+                                        <strong ng-if="alert.rating.value == 5">nie do ominięcia</strong>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
                 <li ng-if="navbar.currentUser">
                     <a ui-sref="profile"><span class="glyphicon glyphicon-user"></span> <strong>PROFIL</strong></a>
                 </li>
