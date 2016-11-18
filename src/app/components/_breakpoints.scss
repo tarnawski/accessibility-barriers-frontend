@@ -1,0 +1,38 @@
+// Desktop
+$desktop-breakpoint-max: 2500px;
+$desktop-breakpoint-min: 768px;
+
+// Mobile
+$mobile-breakpoint-max: $desktop-breakpoint-min - 1;
+$mobile-breakpoint-min: 1px;
+
+@mixin breakpoint($breakpoints...) {
+	$breakpoint-min: $desktop-breakpoint-min;
+	$breakpoint-max: $desktop-breakpoint-max;
+
+	@each $breakpoint in $breakpoints {
+		@if $breakpoint == mobile {
+			$breakpoint-min: $mobile-breakpoint-min;
+			$breakpoint-max: $mobile-breakpoint-max;
+		} @else if $breakpoint == desktop {
+			$breakpoint-min: $desktop-breakpoint-min;
+			$breakpoint-max: $desktop-breakpoint-max;
+		}
+
+		@media (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
+			@content;
+		}
+	}
+}
+
+.hide-mobile {
+	@include breakpoint(mobile) {
+		display: none !important;
+	}
+}
+
+.hide-desktop {
+	@include breakpoint(desktop) {
+		display: none !important;
+	}
+}

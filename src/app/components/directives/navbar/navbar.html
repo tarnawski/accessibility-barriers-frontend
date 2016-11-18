@@ -17,7 +17,7 @@
                 <li><a ui-sref="create_notification"><span class="glyphicon glyphicon-plus"></span> <strong>DODAJ BARIERE</strong></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li dropdown ng-if="navbar.currentUser">
+                <li dropdown ng-if="navbar.currentUser" class="hide-mobile">
                     <a href="#" dropdown-toggle>
                         <span class="glyphicon glyphicon-bell"></span>
                         <span class="label label-info label-notify">{{navbar.alerts.length}}</span>

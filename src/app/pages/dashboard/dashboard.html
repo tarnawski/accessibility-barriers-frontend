@@ -1,7 +1,32 @@
 <navbar></navbar>
 <div class="container-fluid Dashboard">
 <div class="row">
-    <div class="col-sm-4 Dashboard-left-box">
+
+    <div class="col-sm-8 col-sm-push-4 Dashboard-right-box">
+        <ui-gmap-google-map
+                center='dashboard.map.center'
+                zoom='dashboard.map.zoom'>
+            <ui-gmap-window
+                    show="dashboard.map.window.show"
+                    coords="dashboard.map.window.model.coordinates"
+                    options="dashboard.map.window.options"
+                    closeClick="dashboard.map.window.closeClick()"
+                    templateUrl="'app/components/directives/markerWindow/markerWindow.html'"
+                    templateParameter="dashboard.map.window">
+            </ui-gmap-window>
+            <ui-gmap-markers
+                    ng-if="dashboard.notifications"
+                    models="dashboard.notifications"
+                    idkey="dashboard.notifications.id"
+                    options="dashboard.markerOptions"
+                    coords="'coordinates'"
+                    fit="true"
+                    events="dashboard.map.markersEvents">
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
+
+    <div class="col-sm-4 col-sm-pull-8 Dashboard-left-box">
         <div class="Dashboard-left-box-items" ng-if="dashboard.categoryList">
             <div class="Dashboard-left-box-items-item" ng-repeat="category in dashboard.categories" ng-click="dashboard.selectCategory(category.id)">
                 <h5><b>{{ category.name }}</b></h5>
@@ -9,36 +34,14 @@
             </div>
         </div>
         <div class="Dashboard-left-box-items" ng-if="dashboard.notificationList">
-            <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()"><h4>WRÓĆ DO KATRGORII</h4></div>
+            <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()"><h4><span class="glyphicon glyphicon-chevron-left"></span> WRÓĆ DO KATRGORII</h4></div>
             <div class="Dashboard-left-box-items-item" ng-repeat="notification in dashboard.notifications" ng-click="dashboard.selectNotification(notification.id)">
                 <h5><b>{{ notification.name | uppercase}}</b></h5>
                 <h5>{{ notification.address }}</h5>
             </div>
         </div>
     </div>
-    <div class="col-sm-8 Dashboard-right-box">
-       <ui-gmap-google-map
-               center='dashboard.map.center'
-               zoom='dashboard.map.zoom'>
-               <ui-gmap-window
-                       show="dashboard.map.window.show"
-                       coords="dashboard.map.window.model.coordinates"
-                       options="dashboard.map.window.options"
-                       closeClick="dashboard.map.window.closeClick()"
-                       templateUrl="'app/components/directives/markerWindow/markerWindow.html'"
-                       templateParameter="dashboard.map.window">
-               </ui-gmap-window>
-               <ui-gmap-markers
-                       ng-if="dashboard.notifications"
-                       models="dashboard.notifications"
-                       idkey="dashboard.notifications.id"
-                       options="dashboard.markerOptions"
-                       coords="'coordinates'"
-                       fit="true"
-                       events="dashboard.map.markersEvents">
-               </ui-gmap-markers>
-       </ui-gmap-google-map>
-    </div>
+
 </div>
 </div>
 

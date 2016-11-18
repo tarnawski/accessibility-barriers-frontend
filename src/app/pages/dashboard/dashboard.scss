@@ -4,6 +4,11 @@
 
         &-items {
             height: calc(100vh - 50px);
+
+            @include breakpoint(mobile) {
+                height: 100%;
+            }
+
             overflow: auto;
             &-item {
                 display: block;
@@ -38,4 +43,9 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 50px);
+
+    @include breakpoint(mobile) {
+        position: relative;
+        height: 400px;
+    }
 }
