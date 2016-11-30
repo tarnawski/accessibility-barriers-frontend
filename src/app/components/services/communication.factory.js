@@ -34,6 +34,7 @@
                     method: 'PUT'
                 }
             }),
+            images: $resource(CONSTANTS.BASE_URL_API + '/api/images'),
             status: $resource(CONSTANTS.BASE_URL_API + '/api/status'),
             near: $resource(CONSTANTS.BASE_URL_API + '/api/notifications/near')
         };

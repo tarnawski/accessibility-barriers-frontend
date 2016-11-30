@@ -21,6 +21,7 @@
       'geolocation',
       'ui.gravatar',
       '720kb.socialshare',
+      'naif.base64',
 
         // App modules
       'accessibilityBarriers.login',

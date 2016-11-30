@@ -6,7 +6,7 @@
         .controller('CreateNotificationController', CreateNotificationController);
 
     /** @ngInject */
-    function CreateNotificationController(communicationFactory, $stateParams, $state) {
+    function CreateNotificationController(communicationFactory, $stateParams, $state, $scope) {
 
         var vm = this;
         vm.mapClicked = false;
@@ -60,7 +60,6 @@
             );
         }
 
-
         function save() {
             var data = {
                 name: vm.notification.name,
@@ -69,6 +68,10 @@
                 longitude: vm.map.marker.longitude,
                 category: vm.notification.category
             };
+
+            if(!angular.isUndefined(vm.image)) {
+                angular.extend(data, {images: [vm.image.id]});
+            }
 
             communicationFactory.notifications.save(data,
                 function (response) {
@@ -79,5 +82,23 @@
                 }
             );
         }
+
+        function imageUpload(base64) {
+            var data = {
+                data: base64
+            };
+            communicationFactory.images.save(data,
+                function (response) {
+                    vm.image = response;
+                },
+                function () {
+                    $state.go('dashboard');
+                }
+            );
+        }
+
+        $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
+            imageUpload(fileObj.base64);
+        };
     }
 })();
