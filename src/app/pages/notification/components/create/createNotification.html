@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-md-3 text-center">
             <img ng-show="!createNotification.image" ng-src="assets/images/no-image.png" alt="...">
-            <img ng-show="createNotification.image" src="{{createNotification.image.thumbnail}}" alt="...">
+            <img ng-show="createNotification.image" ng-src="{{createNotification.image.thumbnail}}" alt="...">
             <br><br>
             <label ng-show="!createNotification.image" for="upload-photo" class="btn btn-primary btn-block">Dodaj zdjęcie</label>
             <label ng-show="createNotification.image" for="upload-photo" class="btn btn-primary btn-block">Zmień zdjęcie</label>
@@ -48,6 +48,7 @@
                     id="name"
                     name="name"
                     placeholder="Podaj nazwe notyfikacji"
+                    ng-maxlength="64"
                     required>
         </div>
         <div class="form-group" ng-class="createForm.description.$invalid ? 'has-error': 'has-success'">
@@ -58,6 +59,7 @@
                     id="description"
                     name="description"
                     rows="3"
+                    ng-maxlength="250"
                     required>
                 </textarea>
         </div>
@@ -77,7 +79,7 @@
                 ng-click="createNotification.save()"
                 type="submit"
                 ng-disabled="createForm.$invalid || !createNotification.map.marker.latitude"
-                class="btn btn-success btn-block">DODAJ ZGŁOSZENIE</button>
+                class="btn btn-success btn-block">Dodaj zgłoszenie</button>
     </form>
         </div>
     </div>

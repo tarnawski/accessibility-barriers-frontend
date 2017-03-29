@@ -27,9 +27,9 @@
         .catch(setErrorMessage);
     }
 
-    function setErrorMessage(error) {
+    function setErrorMessage() {
       vm.successResponse = "";
-      vm.errorResponse = error;
+      vm.errorResponse = "Login lub hasło jest nieprawidłowe!";
     }
 
     function validateInputs() {

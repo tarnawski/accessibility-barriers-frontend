@@ -19,11 +19,18 @@
 
           <form role="form">
               <div class="form-group">
-                <input ng-model="login.user.username" class="form-control" placeholder="E-mail" name="email" type="text" autofocus>
+                <label for="email">E-mail:</label>
+                <input ng-model="login.user.username" class="form-control" placeholder="E-mail" name="email" type="text" id="email" autofocus>
               </div>
               <div class="form-group">
-                <input ng-model="login.user.password" class="form-control" placeholder="Hasło" name="password" type="password" value="">
+                  <label for="password">Hasło:</label>
+                <input ng-model="login.user.password" class="form-control" placeholder="Hasło" name="password" ng-attr-type="{{ showpassword ? 'text' : 'password' }}" id="password" value="">
               </div>
+              <div class="form-group">
+                  <input id="showpassword" type="checkbox" ng-model="showpassword" ng-checked="false">
+                  <label for="showpassword">Pokaż hasło</label>
+              </div>
+
               <!-- Change this to a button or input when using this as a form -->
             <button class="btn btn-lg btn-success btn-block" ng-click="login.signIn()" ng-disabled="!login.validateInputs()">Zaloguj</button>
           </form>

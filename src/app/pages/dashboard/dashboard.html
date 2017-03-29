@@ -36,7 +36,7 @@
         <div class="Dashboard-left-box-items" ng-if="dashboard.notificationList">
             <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()"><h4><span class="glyphicon glyphicon-chevron-left"></span> WRÓĆ DO KATRGORII</h4></div>
             <div class="Dashboard-left-box-items-item" ng-repeat="notification in dashboard.notifications" ng-click="dashboard.selectNotification(notification.id)">
-                <h5><b>{{ notification.name | uppercase}}</b></h5>
+                <h5><b>{{ notification.name }}</b></h5>
                 <h5>{{ notification.address }}</h5>
             </div>
         </div>

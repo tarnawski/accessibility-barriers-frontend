@@ -15,26 +15,48 @@
 </div>
 <div class="container about-top">
     <br><br>
-    <h1 class="text-center">RZESZÓW BEZ <strong>BARIER</strong></h1>
-    <h3 class="text-center">
-        Aplikacja powstała, aby w jednym miejscu zgromadzić wiedzę różnych osób i
-        organizacji na temat miejsc utrudniających poruszanie się po mieście.
-        Opisane przez nas bariery są przeszkodą dla wielu użytkowników, nie tylko
-        osób niepełnosprawnych, ale także osób starszych, rodziców podróżujących z
-        dziećmi w wózkach czy nawet rowerzystów.
-    </h3>
+    <div class="row center-block">
+        <div class="col-sm-4 text-center">
+            <img ng-src="assets/images/icon.png" class="center-block">
+            <h3>RZESZÓW DLA WSZYSTKICH</h3>
+            <h4 class="text-left">
+                Aplikacja powstała, aby w jednym miejscu zgromadzić wiedzę różnych osób i
+                organizacji na temat miejsc utrudniających poruszanie się po mieście.
+                Opisane przez nas bariery są przeszkodą dla wielu użytkowników, nie tylko
+                osób niepełnosprawnych, ale także osób starszych, rodziców podróżujących z
+                dziećmi w wózkach czy nawet rowerzystów.
+            </h4>
+        </div>
+        <div class="col-sm-4 text-center">
+            <img ng-src="assets/images/wcag.png" class="center-block">
+            <h3>APLIKACJA PRZYJAZNA UŻYTKOWNIKOM</h3>
+            <h4 class="text-left">
+                Podczas projektowania zadbano o dostępność serwisu kierując
+                się wytycznymi zawartymi w specyfikacji WCAG 2.0.
+                Wierzymy, że zarówno aplikacje jak i strony internetowe powinny być dostępne dla wszystkich
+                użytkowników niezależnie od fizycznych lub sprzętowych ograniczeń.
+            </h4>
+        </div>
+        <div class="col-sm-4 text-center">
+            <img ng-src="assets/images/tel.jpg" class="center-block">
+            <h3>DOSTĘPNOŚĆ NA WIELU URZĄDZENIACH</h3>
+            <h4 class="text-left">
+                Wszystkie strony naszego serwisu mogą być z łatwością obsługiwane na wielu typach urządzeń takich jak komputery, laptopy, tablety, oraz telefony komórkowe.
+            </h4>
+        </div>
+    </div>
 </div>
 <br><br>
 <div class="jumbotron">
     <div class="container">
         <div class="row center-block about-statistic">
             <div class="col-sm-6 text-center">
-                <h2>KATEGORII</h2>
                 <h1>{{about.status.category}}</h1>
+                <h2>KATEGORII MIEJSC UTRUDNIAJĄCYCH PORUSZANIE</h2>
             </div>
             <div class="col-sm-6 text-center">
-                <h2>BARIER</h2>
                 <h1>{{about.status.notifications}}</h1>
+                <h2>ZGŁOSZONYCH BARIER ARCHITEKTONICZNYCH</h2>
             </div>
         </div>
     </div>

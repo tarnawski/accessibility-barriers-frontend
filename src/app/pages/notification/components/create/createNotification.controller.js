@@ -84,6 +84,9 @@
         }
 
         function imageUpload(base64) {
+            vm.image = {
+                thumbnail: "assets/images/loading.gif"
+            };
             var data = {
                 data: base64
             };

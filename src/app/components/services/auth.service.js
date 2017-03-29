@@ -152,7 +152,7 @@
             var params = {
                 first_name: user.firstName,
                 last_name: user.lastName,
-                username: user.username,
+                username: user.address,
                 email: user.address,
                 password: user.password,
                 client_id: CONSTANTS.OAUTH.CLIENT_ID,

@@ -41,20 +41,6 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <h4 class="page-header">
-                        <span class="glyphicon glyphicon-asterisk"></span>
-                        NICK
-                    </h4>
-                    <input type="text"
-                           class="form-control"
-                           id="nick"
-                           ng-disabled="true"
-                           ng-model="profile.currentUser.username"
-                    required>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <h4 class="page-header">
                         <span class="glyphicon glyphicon-envelope"></span>
                         ADRES EMAIL
                     </h4>
@@ -62,11 +48,9 @@
                            class="form-control"
                            id="email"
                            ng-model="profile.currentUser.email"
-                    required>
+                           required>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <h4 class="page-header">
@@ -82,11 +66,13 @@
                 </div>
             </div>
         </div>
-        <br><br>
+
+        <br>
         <button
                 ng-click="profile.update()"
                 type="submit"
                 ng-disabled="updateForm.$invalid"
-                class="btn btn-success btn-block">ZAPISZ ZMIANY</button>
+                class="btn btn-success btn-block">Zapisz zmiany</button>
+        <br><br>
     </form>
 </div>

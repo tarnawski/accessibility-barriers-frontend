@@ -20,23 +20,67 @@
           <form role="form">
               <div class="form-group">
                 <label for="first_name">Podaj imie:</label>
-                <input ng-model="register.user.firstName" class="form-control" placeholder="Imie" name="first_name" id="first_name" type="text" autofocus>
+                <input
+                        ng-model="register.user.firstName"
+                        class="form-control"
+                        placeholder="Imie"
+                        name="first_name"
+                        id="first_name"
+                        type="text"
+                        ng-minlength="2"
+                        ng-maxlength="34"
+                        autofocus>
               </div>
               <div class="form-group">
                 <label for="last_name">Podaj imie:</label>
-                <input ng-model="register.user.lastName" class="form-control" placeholder="Nazwisko" name="last_name" id="last_name" type="text" autofocus>
-              </div>
-              <div class="form-group">
-                <label for="username">Podaj nazwe użytkownika:</label>
-                <input ng-model="register.user.username" class="form-control" placeholder="Nazwa użytkownika" name="username" id="username" type="text" autofocus>
+                <input
+                        ng-model="register.user.lastName"
+                        class="form-control"
+                        placeholder="Nazwisko"
+                        name="last_name"
+                        id="last_name"
+                        type="text"
+                        ng-minlength="2"
+                        ng-maxlength="34"
+                        autofocus>
               </div>
               <div class="form-group">
                 <label for="email">Podaj adres e-mail:</label>
-                <input ng-model="register.user.address" class="form-control" placeholder="Adres e-mail" name="email" id="email" type="text" autofocus>
+                <input
+                        ng-model="register.user.address"
+                        class="form-control"
+                        placeholder="Adres e-mail"
+                        name="email" id="email"
+                        type="email"
+                        autofocus>
               </div>
               <div class="form-group">
                 <label for="password">Podaj hasło:</label>
-                <input ng-model="register.user.password" class="form-control" placeholder="Hasło" name="password" id="password" type="password" value="">
+                <input
+                        ng-model="register.user.password"
+                        class="form-control"
+                        placeholder="Hasło"
+                        name="password"
+                        id="password"
+                        ng-attr-type="{{ showpassword ? 'text' : 'password' }}"                        value=""
+                        ng-minlength="6"
+                        ng-maxlength="34">
+              </div>
+              <div class="form-group">
+                  <label for="passwordRepeat">Powtórz hasło:</label>
+                  <input
+                          ng-model="register.user.passwordRepeat"
+                          class="form-control"
+                          placeholder="Powtórz hasło"
+                          name="passwordRepeat"
+                          id="passwordRepeat"
+                          ng-attr-type="{{ showpassword ? 'text' : 'password' }}"                          value=""
+                          ng-minlength="6"
+                          ng-maxlength="34">
+              </div>
+              <div class="form-group">
+                  <input id="showpassword" type="checkbox" ng-model="showpassword" ng-checked="false">
+                  <label for="showpassword">Pokaż hasło</label>
               </div>
               <!-- Change this to a button or input when using this as a form -->
             <button class="btn btn-lg btn-success btn-block" ng-click="register.register()" ng-disabled="!register.validateInputs()">Zaloguj</button>
