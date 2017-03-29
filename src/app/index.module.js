@@ -22,6 +22,7 @@
       'ui.gravatar',
       '720kb.socialshare',
       'naif.base64',
+      'bootstrapLightbox',
 
         // App modules
       'accessibilityBarriers.login',

@@ -8,9 +8,11 @@
                 ZDJĘCIE
             </h4>
             <div class="text-center">
+                <a ng-click="notification.openLightboxModal($index)">
                 <img ng-show="!notification.notification.images[0]" ng-src="assets/images/no-image.png" alt="...">
                 <img ng-show="notification.notification.images[0]"
                      src="{{notification.notification.images[0].thumbnail}}" alt="...">
+                </a>
             </div>
         </div>
         <div class="col-md-9">

@@ -6,9 +6,11 @@
     .controller('NotificationController', NotificationController);
 
   /** @ngInject */
-  function NotificationController(communicationFactory, $stateParams, $location, $state) {
+  function NotificationController(communicationFactory, $stateParams, $location, $state, Lightbox) {
 
     var vm = this;
+    // View model functions
+    vm.openLightboxModal = openLightboxModal;
 
     activate();
 
@@ -47,6 +49,13 @@
             $state.go('dashboard');
           }
       );
+    }
+
+    function openLightboxModal() {
+        console.log(vm.notification.images[0].original)
+        Lightbox.openModal([{
+            'url': vm.notification.images[0].original
+        }], 0);
     }
   }
 })();
