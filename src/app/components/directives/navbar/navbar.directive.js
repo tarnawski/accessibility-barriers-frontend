@@ -23,6 +23,7 @@
       var vm = this;
 
       vm.logout = logoutUser;
+      vm.goToNotification = goToNotification;
 
       activate();
 
@@ -50,6 +51,12 @@
         authService.logout();
         $state.go('login', {message: 'Zostałeś popranie wylogowany'});
       }
+
+        function goToNotification(alertId, notificationId) {
+            communicationFactory.alerts.update({ id: alertId },{});
+            getAlerts();
+            $state.go('notification', { id: notificationId });
+        }
     }
   }
 

@@ -30,7 +30,7 @@
 
                         <div class="alerts-wrapper" ng-if="navbar.alerts.length != 0">
                             <div class="content" ng-repeat="alert in navbar.alerts">
-                                <div ui-sref="notification({id: alert.notification.id})" class="alert-item">
+                                <div ng-click="navbar.goToNotification(alert.id, alert.notification.id)" class="alert-item">
                                     <h4 class="item-title">
                                         <strong>{{alert.message}}</strong><br>
                                         {{alert.notification.name}}

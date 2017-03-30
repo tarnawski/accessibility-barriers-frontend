@@ -52,7 +52,6 @@
     }
 
     function openLightboxModal() {
-        console.log(vm.notification.images[0].original)
         Lightbox.openModal([{
             'url': vm.notification.images[0].original
         }], 0);

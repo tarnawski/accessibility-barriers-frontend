@@ -29,7 +29,7 @@
                     method: 'PUT'
                 }
             }),
-            alerts: $resource(CONSTANTS.BASE_URL_API + '/api/alerts',{}, {
+            alerts: $resource(CONSTANTS.BASE_URL_API + '/api/alerts/:id',{id: '@_id'}, {
                 update: {
                     method: 'PUT'
                 }
