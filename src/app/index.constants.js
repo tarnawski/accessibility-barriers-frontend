@@ -8,6 +8,7 @@
     .constant('moment', moment)
     .constant('CONSTANTS',{
       //BASE_URL_API: 'http://accessibility-barriers.dev/app_dev.php',
+      //BASE_URL_API: 'http://dev-rzeszowbezbarier-api.ttarnawski.usermd.net',
       BASE_URL_API: 'http://rzeszowbezbarier-api.ttarnawski.usermd.net',
       OAUTH: {
         CLIENT_ID: '1_69xzvcmvpscooswgk8kc8kg08088c8ws0swso0cgogog80kwoo',
