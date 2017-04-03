@@ -9,6 +9,8 @@
   function AboutController(communicationFactory, $state) {
 
       var vm = this;
+      vm.subscribe = subscribe;
+      vm.isSubscribe = false;
 
       activate();
 
@@ -25,6 +27,22 @@
               },
               function () {
                   $state.go('dashboard');
+              }
+          );
+      }
+
+      function subscribe() {
+          var data = {
+              email: vm.email
+          };
+
+
+          communicationFactory.subscribers.save(data,
+              function () {
+                  vm.isSubscribe = true;
+              },
+              function () {
+                  vm.isSubscribe = true;
               }
           );
       }

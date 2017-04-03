@@ -13,18 +13,14 @@
         <div class="col-sm-3"></div>
     </div>
 </div>
-<div class="container about-top">
-    <br><br>
+<div class="container about-top text-center">
+    <br><br><br><br>
     <div class="row center-block">
         <div class="col-sm-4 text-center">
             <img ng-src="assets/images/icon.png" class="center-block">
             <h3>RZESZÓW DLA WSZYSTKICH</h3>
             <h4 class="text-left">
-                Aplikacja powstała, aby w jednym miejscu zgromadzić wiedzę różnych osób i
-                organizacji na temat miejsc utrudniających poruszanie się po mieście.
-                Opisane przez nas bariery są przeszkodą dla wielu użytkowników, nie tylko
-                osób niepełnosprawnych, ale także osób starszych, rodziców podróżujących z
-                dziećmi w wózkach czy nawet rowerzystów.
+                Oddajemy do Waszej dyspozycji unikatową Mapę Barier – pierwszą mapę, na której zamieszczone będą miejsca zgłoszone przez rzeszowian jako uciążliwe dla dla osób niepełnosprawnych.
             </h4>
         </div>
         <div class="col-sm-4 text-center">
@@ -46,7 +42,9 @@
         </div>
     </div>
 </div>
+
 <br><br>
+
 <div class="jumbotron">
     <div class="container">
         <div class="row center-block about-statistic">
@@ -57,6 +55,61 @@
             <div class="col-sm-6 text-center">
                 <h1>{{about.status.notifications}}</h1>
                 <h2>ZGŁOSZONYCH BARIER ARCHITEKTONICZNYCH</h2>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+<div class="container">
+    <br><br>
+    <h2 class="text-left">
+        Aplikacja powstała, aby w jednym miejscu zgromadzić wiedzę różnych osób i
+        organizacji na temat miejsc utrudniających poruszanie się po mieście.
+        Opisane przez nas bariery są przeszkodą dla wielu użytkowników, nie tylko
+        osób niepełnosprawnych, ale także osób starszych, rodziców podróżujących z
+        dziećmi w wózkach czy nawet rowerzystów.
+    </h2>
+    <br><br>
+    <h2 class="text-right"><i>"Zmieniając świat na lepsze zacznijmy od najbliższego środowiska"</i></h2>
+    <br><br>
+</div>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 ng-show="!about.isSubscribe">Podaj swój adres e-mail, aby otrzymywać informacje o nowych zgłoszeniach.</h2>
+                <h2 ng-show="about.isSubscribe">Dziękujemy! Od tej pory będziesz otrzymywać informacje o nowych zgłoszeniach.</h2>
+                <br>
+                <form name="subscribeForm">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" ng-model="about.email" class="form-control input-lg"
+                           placeholder="Wpisz tutaj adres e-mail" required/>
+                    <span class="input-group-btn">
+                        <button
+                            ng-click="subscribeForm.$valid && about.subscribe()"
+                            type="submit"
+                            class="btn btn-lg"
+                            ><span class="glyphicon glyphicon-envelope"></span> Zapisz
+                        </button>
+                    </span>
+                </div>
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <h5>Aplikacja obecnie jest w fazie BETA - produkt uznany za stabilny i gotowy do wydania, może jednak zawierać nieznaczne błędy, które nie powinny wpłynąć na jego prawidłowe funkcjonowanie.
+                    Informacje zwrotne na temat produktu w fazie beta są niezwykle cenne, pozwolą Nam na dostosowanie aplikacji do Państwa potrzeb.</h5>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6 text-center">
+                        <img ng-src="assets/images/at.png" class="center-block">
+                        <h4>tarnawski27@gmail.com</h4>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <img ng-src="assets/images/github.png" class="center-block">
+                        <h4>github.com/tarnawski</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
