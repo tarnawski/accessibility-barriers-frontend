@@ -1,10 +1,23 @@
 <navbar></navbar>
 <br><br><br><br>
 <div class="container">
+    <div ng-show="!subscribe.isUnSubscribe">
+        <h1>Czy napewno nie chcesz już otrzymywać wiadomości z serwisu RzeszówBezBarier?</h1>
+        <br><br><br>
+        <div class="row center-block">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="subscribe.unSubscribe()">Tak, jestem pewny</button>
+            </div>
+            <div class="col-sm-3">
+                <button ui-sref="dashboard" type="button" class="btn btn-primary btn-lg btn-block">Anuluj
+                </button>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
     <div ng-show="subscribe.isUnSubscribe" class="alert alert-success">
         <strong>Sukces!</strong> Twój adres e-mail został usunięty z listy.
     </div>
-    <div ng-show="!subscribe.isUnSubscribe" class="alert alert-danger">
-        <strong>Błąd!</strong> Link jest niepoprawny.
-    </div>
+
 </div>
