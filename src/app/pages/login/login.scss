@@ -1,5 +1,10 @@
 .login-box {
-  padding-top: 15%;
+  @include breakpoint(desktop) {
+    padding-top: 30vh;
+  }
+  @include breakpoint(mobile) {
+    padding-top: 20vh;
+  }
   position: absolute;
   top: 0;
   left: 0;

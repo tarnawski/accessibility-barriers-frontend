@@ -1,6 +1,5 @@
 .about-box {
   z-index: 1;
-  padding-top: 30vh;
   margin: 0;
   top: 0;
   left: 0;
@@ -9,17 +8,27 @@
   height: 95vh;
   background: url('../assets/images/rze.jpg') center center;
   background-size: cover;
+  @include breakpoint(desktop) {
+    padding-top: 30vh;
+  }
+  @include breakpoint(mobile) {
+    padding-top: 20vh;
+  }
+  .item {
+    margin-top: 10px;
+  }
 }
 
 .about-box h1 {
    color: white;
    font-family: "Arial", Helvetica, sans-serif;
-   font-size: 450%;
+   font-size: 350%;
  }
 
-.about-top hr {
-  height: 2px;
-  background-color:#555;
+.about-top  {
+  .item {
+    margin-top: 50px;
+  }
 }
 
 .about-top h3 {
@@ -30,11 +39,18 @@
 .jumbotron {
   margin-bottom: 0 !important;
   background-color: #e74c3c;
-  h1 {
+  h1, h2, h3, h4, h5 {
     color: white;
-    font-weight: bold;
   }
-  h2, h4, h5 {
-    color: white;
+  .about-statistic {
+    .item {
+      margin-top: 20px;
+    }
+  }
+  .info {
+    @include breakpoint(mobile) {
+      display: none;
+    }
+    margin-top: 20px;
   }
 }

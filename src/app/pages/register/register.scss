@@ -1,6 +1,10 @@
 .register-box {
-  padding-top: 8%;
-  position: absolute;
+  @include breakpoint(desktop) {
+    padding-top: 20vh;
+  }
+  @include breakpoint(mobile) {
+    padding-top: 10vh;
+  }  position: absolute;
   top: 0;
   left: 0;
   display: table;
