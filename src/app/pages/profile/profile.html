@@ -1,6 +1,6 @@
 <navbar></navbar>
-<br>
-<div class="container">
+<h1 class="invisible">Strona profilu</h1>
+<div class="container Profile">
     <div ng-messages="profile.errorResponse" ng-if="profile.errorResponse" >
         <div class="alert alert-danger">{{profile.errorResponse}}</div>
     </div>
@@ -12,10 +12,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <h4 class="page-header">
+                    <div class="page-header Profile-section-title">
                         <span class="glyphicon glyphicon-user"></span>
                         IMIE
-                    </h4>
+                    </div>
+                    <label for="firstName" class="invisible">Imie</label>
                     <input type="text"
                            class="form-control"
                            id="firstName"
@@ -25,10 +26,11 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <h4 class="page-header">
+                    <div class="page-header Profile-section-title">
                         <span class="glyphicon glyphicon-user"></span>
                         NAZWISKO
-                    </h4>
+                    </div>
+                    <label for="lastName" class="invisible">Nazwisko</label>
                     <input type="text"
                            class="form-control"
                            id="lastName"
@@ -40,10 +42,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <h4 class="page-header">
+                    <div class="page-header Profile-section-title">
                         <span class="glyphicon glyphicon-envelope"></span>
                         ADRES EMAIL
-                    </h4>
+                    </div>
+                    <label for="email" class="invisible">Adres email</label>
                     <input type="email"
                            class="form-control"
                            id="email"
@@ -53,16 +56,16 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <h4 class="page-header">
+                    <div class="page-header Profile-section-title">
                         <span class="glyphicon glyphicon-send"></span>
                         NOTIFIKACJE EMAIL
-                    </h4>
-                    <h4>
+                    </div>
+                    <div class="Profile-section-notification">
                         <label>
                             <input type="checkbox" ng-model="profile.currentUser.email_notification">
                             Chcę otrzymywać notyfikacje o nowych zgłoszeniach na adres e-mail: <strong>{{profile.currentUser.email}}</strong>
                         </label>
-                    </h4>
+                    </div>
                 </div>
             </div>
         </div>

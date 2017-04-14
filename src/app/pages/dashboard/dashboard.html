@@ -1,7 +1,7 @@
 <navbar></navbar>
+<h1 class="invisible">Mapa barier</h1>
 <div class="container-fluid Dashboard">
 <div class="row">
-
     <div class="col-sm-8 col-sm-push-4 Dashboard-right-box">
         <ui-gmap-google-map
                 center='dashboard.map.center'
@@ -29,15 +29,19 @@
     <div class="col-sm-4 col-sm-pull-8 Dashboard-left-box">
         <div class="Dashboard-left-box-items" ng-if="dashboard.categoryList">
             <div class="Dashboard-left-box-items-item" ng-repeat="category in dashboard.categories" ng-click="dashboard.selectCategory(category.id)">
-                <h5><b>{{ category.name }}</b></h5>
-                <h6>Liczba notyfikacji: {{ category.notification_count }}</h6>
+                <div class="Dashboard-left-box-items-item-category-name">{{ category.name }}</div>
+                <div class="Dashboard-left-box-items-item-category-count">Liczba notyfikacji: {{ category.notification_count }}</div>
             </div>
         </div>
         <div class="Dashboard-left-box-items" ng-if="dashboard.notificationList">
-            <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()"><h4><span class="glyphicon glyphicon-chevron-left"></span> WRÓĆ DO KATRGORII</h4></div>
+            <div class="Dashboard-left-box-items-item" ng-click="dashboard.backToCategory()">
+                <div class="Dashboard-left-box-items-back-to-category">
+                    <span class="glyphicon glyphicon-chevron-left"></span> WRÓĆ DO KATRGORII
+                </div>
+            </div>
             <div class="Dashboard-left-box-items-item" ng-repeat="notification in dashboard.notifications" ng-click="dashboard.selectNotification(notification.id)">
-                <h5><b>{{ notification.name }}</b></h5>
-                <h5>{{ notification.address }}</h5>
+                <div class="Dashboard-left-box-items-item-category-name">{{ notification.name }}</div>
+                <div class="Dashboard-left-box-items-item-category-count">{{ notification.address }}</div>
             </div>
         </div>
     </div>

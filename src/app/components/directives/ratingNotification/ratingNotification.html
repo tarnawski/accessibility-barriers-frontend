@@ -1,6 +1,6 @@
-<div class="row">
-    <div class="col-sm-6 text-center">
-        <h1 class="rating-num">{{rating.rating.average | limitTo: 3}}</h1>
+<div class="row RatingNotification">
+    <div class="col-sm-5 text-center">
+        <div class="RatingNotification-rating-num">{{rating.rating.average | limitTo: 3}}</div>
         <div class="rating">
             <span ng-class="rating.rating.average >=1 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
             <span ng-class="rating.rating.average >=2 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></span>
@@ -12,14 +12,14 @@
             Oceniło {{rating.rating.count}} użytkowników
         </div>
     </div>
-    <div ng-show="rating.currentUser" class="col-sm-6 text-center">
-        <h3 ng-show="rating.hover == 0">Oceń bariere</h3>
-        <h3 ng-show="rating.hover == 1">Nie uciążliwa</h3>
-        <h3 ng-show="rating.hover == 2">Trochę uciążliwa</h3>
-        <h3 ng-show="rating.hover == 3">Średnio uciążliwa</h3>
-        <h3 ng-show="rating.hover == 4">Bardzo uciążliwa</h3>
-        <h3 ng-show="rating.hover == 5">Nie do ominięcia</h3>
-        <h1>
+    <div ng-show="rating.currentUser" class="col-sm-7 text-center">
+        <div class="RatingNotification-rating-string" ng-show="rating.hover == 0">Oceń bariere</div>
+        <div class="RatingNotification-rating-string" ng-show="rating.hover == 1">Nie uciążliwa</div>
+        <div class="RatingNotification-rating-string" ng-show="rating.hover == 2">Trochę uciążliwa</div>
+        <div class="RatingNotification-rating-string" ng-show="rating.hover == 3">Średnio uciążliwa</div>
+        <div class="RatingNotification-rating-string" ng-show="rating.hover == 4">Bardzo uciążliwa</div>
+        <div class="RatingNotification-rating-string" ng-show="rating.hover == 5">Nie do ominięcia</div>
+        <div class="RatingNotification-rating-stars">
             <span
                     ng-click="rating.rate(1)"
                     ng-mouseenter="rating.hover = 1"
@@ -51,6 +51,6 @@
                     ng-class="rating.hover >=5 ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'">
             </span>
 
-        </h1>
+        </div>
     </div>
 </div>
