@@ -1,4 +1,5 @@
 <navbar></navbar>
+<h1 class="invisible">Formularz noewj notyfikacji</h1>
 <div class="container Notification">
     <div ng-messages="createNotification.errorResponse" ng-if="createNotification.errorResponse" >
         <div class="alert alert-danger">{{createNotification.errorResponse}}</div>
@@ -7,14 +8,14 @@
     <div ng-messages="createNotification.successResponse" ng-if="createNotification.successResponse">
         <div class="alert alert-success">{{createNotification.successResponse}}</div>
     </div>
-    <h4 class="page-header" ng-if="!createNotification.map.marker.latitude">
+    <div class="page-header Notification-section-title" ng-if="!createNotification.map.marker.latitude">
         <span class="glyphicon glyphicon-map-marker"></span>
         OZNACZ MIEJSCE NA MAPIE
-    </h4>
-    <h4 class="page-header" ng-if="createNotification.map.marker.latitude">
+    </div>
+    <div class="page-header Notification-section-title" ng-if="createNotification.map.marker.latitude">
         <span class="glyphicon glyphicon-ok"></span>
         MIEJSCE ZOSTAŁO OZNACZONE
-    </h4>
+    </div>
     <ui-gmap-google-map
             center='createNotification.map.center'
             zoom='createNotification.map.zoom'
@@ -22,19 +23,27 @@
         <ui-gmap-marker ng-if="createNotification.mapClicked" coords="createNotification.map.marker" idkey="1"></ui-gmap-marker>
     </ui-gmap-google-map>
 
-    <h4 class="page-header">
+    <div class="page-header Notification-section-title">
         <span class="glyphicon glyphicon-plus"></span>
         UZUPEŁNIJ DANE O ZGŁOSZENIU
-    </h4>
+    </div>
 
     <div class="row">
         <div class="col-md-3 text-center">
             <img ng-show="!createNotification.image" ng-src="assets/images/no-image.png" alt="...">
             <img ng-show="createNotification.image" ng-src="{{createNotification.image.thumbnail}}" alt="...">
             <br><br>
-            <label ng-show="!createNotification.image" for="upload-photo" class="btn btn-primary btn-block">Dodaj zdjęcie</label>
-            <label ng-show="createNotification.image" for="upload-photo" class="btn btn-primary btn-block">Zmień zdjęcie</label>
-            <input ng-show="false" type="file" ng-model="createNotification.file" id="upload-photo" name="file" base-sixty-four-input required onload="onLoad" maxsize="500" accept="image/jpeg">
+            <label ng-show="!createNotification.image" for="upload-photo" class="btn btn-primary btn-block">{{createNotification.image ? 'Zmień zdjęcie' : 'Dodaj zdjęcie'}}</label>
+            <input
+                    ng-show="false"
+                    type="file"
+                    ng-model="createNotification.file"
+                    id="upload-photo"
+                    name="file"
+                    base-sixty-four-input required
+                    onload="onLoad"
+                    maxsize="500"
+                    accept="image/jpeg">
             <br><br>
         </div>
         <div class="col-md-9">

@@ -1,58 +1,59 @@
 <navbar></navbar>
-
+<h1 class="invisible">Strona notyfikacji {{ notification.notification.name }}</h1>
 <div class="container Notification">
     <div class="row">
         <div class="col-md-3">
-            <h4 class="page-header">
-                <span class="glyphicon glyphicon-picture"></span>
+            <div class="page-header Notification-section-title">
+                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                 ZDJĘCIE
-            </h4>
+            </div>
             <div class="text-center">
                 <a ng-click="notification.openLightboxModal($index)">
-                <img ng-show="!notification.notification.images[0]" ng-src="assets/images/no-image.png" alt="...">
+                <img ng-show="!notification.notification.images[0]" ng-src="assets/images/no-image.png" alt="Zdjęcie przedstawiające zgłoszone miejsce">
                 <img ng-show="notification.notification.images[0]"
-                     src="{{notification.notification.images[0].thumbnail}}" alt="...">
+                     src="{{notification.notification.images[0].thumbnail}}" alt="Brak zdjęcia">
                 </a>
             </div>
         </div>
         <div class="col-md-9">
-            <h4 class="page-header">
+            <div class="page-header Notification-section-title">
                 <span class="	glyphicon glyphicon-flag"></span>
                 OPIS ZGŁOSZENIA
-            </h4>
+            </div>
             <h2>{{ notification.notification.name }}</h2>
             <h3>{{notification.notification.description}}</h3>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h4 class="page-header">
+            <div class="page-header Notification-section-title">
                 <span class="glyphicon glyphicon-th-list"></span>
                 KATEGORIA ZGŁOSZENIA
-            </h4>
+            </div>
             <h3>{{notification.notification.category.name}}</h3>
         </div>
         <div class="col-md-6">
-            <h4 class="page-header">
+            <div class="page-header Notification-section-title">
                 <span class="glyphicon glyphicon-map-marker"></span>
                 PRZYBLIŻONY ADRES
-            </h4>
+            </div>
             <h3>{{notification.notification.address}}</h3>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-md-6">
-            <h4 class="page-header">
+            <div class="page-header Notification-section-title">
                 <span class="glyphicon glyphicon-thumbs-down"></span>
                 OCENA UCIĄŻLIWOŚCI
-            </h4>
+            </div>
             <rating-notification model="notification.modelId"></rating-notification>
         </div>
         <div class="col-md-6">
-            <h4 class="page-header">
+            <div class="page-header Notification-section-title">
                 <span class="glyphicon glyphicon-bell"></span>
                 OSTRZEŻ ZNAJOMYCH
-            </h4>
+            </div>
             <a type="button"
                class="btn btn-primary btn-block"
                socialshare
@@ -79,11 +80,11 @@
             </a>
         </div>
     </div>
-    <br><br>
-    <h4 class="page-header">
+    <br>
+    <div class="page-header Notification-section-title">
         <span class="glyphicon glyphicon-globe"></span>
         LOKALIZACJA NA MAPIE
-    </h4>
+    </div>
     <ui-gmap-google-map
             center='notification.map.center'
             zoom='notification.map.zoom'>
@@ -94,20 +95,20 @@
                 idkey="notification.notification.id ? notification.notification.id : 0">
         </ui-gmap-marker>
     </ui-gmap-google-map>
-    <h4 class="page-header">
+    <div class="page-header Notification-section-title">
         <span class="glyphicon glyphicon-alert"></span>
         BARIERY W POBLIŻU
-    </h4>
+    </div>
     <near-notification
             ng-if="notification.notification"
             latitude="notification.notification.coordinates.latitude"
             longitude="notification.notification.coordinates.longitude"
             limit="4">
     </near-notification>
-    <h4 class="page-header">
+    <div class="page-header Notification-section-title">
         <span class="glyphicon glyphicon-comment"></span>
         KOMENTARZE UŻYTKOWNIKÓW
-    </h4>
+    </div>
     <comment-notification model="notification.modelId"></comment-notification>
 
 </div>

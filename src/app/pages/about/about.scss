@@ -28,6 +28,10 @@
 .about-top  {
   .item {
     margin-top: 50px;
+    h3 {
+      font-family: "Arial", Helvetica, sans-serif;
+      font-size: 120%;
+    }
   }
 }
 
@@ -40,7 +44,11 @@
   margin-bottom: 0 !important;
   background-color: #e74c3c;
   h1, h2, h3, h4, h5 {
+    font-family: "Arial", Helvetica, sans-serif;
     color: white;
+  }
+  h4 {
+    font-size: 120%;
   }
   .about-statistic {
     .item {
